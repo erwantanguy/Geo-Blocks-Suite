@@ -1,4 +1,4 @@
-# Geo-Blocks-Suite
+# GEO Blocks Suite
 
 ![WordPress Plugin](https://img.shields.io/badge/WordPress-Plugin-blue)
 ![Version](https://img.shields.io/badge/version-2.1.9-green)
@@ -21,13 +21,132 @@ Enrichissez vos contenus WordPress avec des médias structurés que les moteurs 
 
 ---
 
-## 🧩 Les 3 blocs disponibles
+## 🧩 Les 5 blocs disponibles
 
 | Bloc | Type Schema.org | Fonctionnalités clés |
 |------|----------------|---------------------|
+| **FAQGEO** | `FAQPage` | Questions/réponses structurées, JSON-LD automatique |
+| **BlockquoteGEO** | `Quotation` | Citations avec source et auteur, métadonnées |
 | **ImageGEO** | `ImageObject` | Upload, métadonnées, lightbox, alt automatique |
 | **VideoGEO** | `VideoObject` | Hébergement local ou YouTube/Vimeo, embed auto |
 | **AudioGEO** | `AudioObject` | Upload audio, transcription, lecteur intégré |
+
+---
+
+## ❓ FAQGEO
+
+### Objectif
+Créer des FAQ structurées avec JSON-LD FAQPage pour optimiser l'indexation par les IA.
+
+### Fonctionnalités
+
+- ✅ **Interface Q&A** : Ajout/suppression de questions-réponses
+- ✅ **Questions multiples** : Nombre illimité de paires Q/R
+- ✅ **Accordéon interactif** : Affichage/masquage des réponses
+- ✅ **JSON-LD FAQPage** généré automatiquement
+- ✅ **Impact GEO maximal** : +30 points au score
+
+### Structure HTML générée
+
+```html
+<div class="geo-faq">
+    <details>
+        <summary>Question 1 ?</summary>
+        <p>Réponse à la question 1.</p>
+    </details>
+    <details>
+        <summary>Question 2 ?</summary>
+        <p>Réponse à la question 2.</p>
+    </details>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Question 1 ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Réponse à la question 1."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Question 2 ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Réponse à la question 2."
+            }
+        }
+    ]
+}
+</script>
+```
+
+### ✨ Bonnes pratiques
+
+- ✅ Minimum **2 questions** par FAQ
+- ✅ Questions **naturelles** (comment, pourquoi, quand...)
+- ✅ Réponses **complètes** et précises (50-300 mots)
+- ✅ Utiliser des **mots-clés** pertinents
+- ✅ **1 seul bloc FAQ** par article recommandé
+
+---
+
+## 💬 BlockquoteGEO
+
+### Objectif
+Ajouter des citations avec attribution d'auteur et source pour renforcer la crédibilité.
+
+### Fonctionnalités
+
+- ✅ **Champs métadonnées** :
+  - **Citation** : Texte de la citation
+  - **Auteur** : Nom de la personne citée
+  - **Source** : URL ou référence de la source
+  - **Date** : Date de la citation (optionnel)
+- ✅ **JSON-LD Quotation** généré automatiquement
+- ✅ **Impact GEO élevé** : +15 points au score
+- ✅ **Mise en forme élégante** avec barre latérale
+
+### Structure HTML générée
+
+```html
+<blockquote class="geo-blockquote" cite="[URL_SOURCE]">
+    <p>[TEXTE_CITATION]</p>
+    <footer>
+        — <cite>[AUTEUR]</cite>
+        <a href="[URL_SOURCE]" target="_blank">[SOURCE]</a>
+    </footer>
+</blockquote>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Quotation",
+    "text": "Texte de la citation",
+    "author": {
+        "@type": "Person",
+        "name": "Nom de l'auteur"
+    },
+    "isBasedOn": {
+        "@type": "CreativeWork",
+        "url": "https://example.com/source"
+    }
+}
+</script>
+```
+
+### ✨ Bonnes pratiques
+
+- ✅ **Toujours citer la source** (URL ou référence)
+- ✅ Citations **courtes** (< 300 caractères pour Twitter)
+- ✅ Vérifier l'**exactitude** de la citation
+- ✅ Utiliser des **citations d'experts** reconnus
+- ✅ **Varier les sources** pour plus de crédibilité
 
 ---
 
@@ -219,6 +338,8 @@ Les blocs MediaGEO sont **automatiquement détectés** par l'audit de contenu :
 
 | Média | Impact GEO | Points |
 |-------|-----------|--------|
+| **FAQ** | Très élevé | +30 |
+| **Citations** | Élevé | +15 |
 | **Images** | Moyen | +15 max |
 | **Vidéos** | Élevé | +10 |
 | **Audio** | Faible | +5 |
@@ -226,9 +347,11 @@ Les blocs MediaGEO sont **automatiquement détectés** par l'audit de contenu :
 ### Classes CSS détectées
 
 ```css
-.geo-image  /* Images MediaGEO */
-.geo-video  /* Vidéos MediaGEO */
-.geo-audio  /* Audio MediaGEO */
+.geo-faq        /* FAQ MediaGEO */
+.geo-blockquote /* Citations MediaGEO */
+.geo-image      /* Images MediaGEO */
+.geo-video      /* Vidéos MediaGEO */
+.geo-audio      /* Audio MediaGEO */
 ```
 
 ---
@@ -238,8 +361,8 @@ Les blocs MediaGEO sont **automatiquement détectés** par l'audit de contenu :
 ### 1️⃣ Ajouter un bloc MediaGEO
 
 1. Dans Gutenberg, cliquer sur **+** (Ajouter un bloc)
-2. Rechercher **"GEO"** ou le type de média
-3. Sélectionner **ImageGEO**, **VideoGEO** ou **AudioGEO**
+2. Rechercher **"GEO"** ou le type de bloc
+3. Sélectionner **FAQGEO**, **BlockquoteGEO**, **ImageGEO**, **VideoGEO** ou **AudioGEO**
 
 ### 2️⃣ Uploader le média
 
@@ -251,6 +374,10 @@ Les blocs MediaGEO sont **automatiquement détectés** par l'audit de contenu :
 
 | Champ | Description |
 |-------|-------------|
+| **Question/Réponse** | Paires Q/R pour FAQ |
+| **Citation** | Texte de la citation (Blockquote) |
+| **Auteur** | Nom de la personne citée (Blockquote) |
+| **Source** | URL ou référence (Blockquote) |
 | **Titre** | Nom explicite du média |
 | **Description** | Contexte, contenu, auteur |
 | **Licence** | URL Creative Commons |
@@ -277,7 +404,8 @@ Les métadonnées permettent aux IA de :
 
 | Type d'article | Score GEO |
 |---------------|-----------|
-| Sans média | ≤ 50 |
+| Sans FAQ ni citations | ≤ 50 |
+| FAQ + Citations seules | 50-70 |
 | FAQ + Citations + Médias | ≥ 80 |
 
 ### 3. Référencement enrichi
@@ -336,6 +464,9 @@ Pour le GEO, privilégier les **licences ouvertes** :
 
 ## 📚 Ressources
 
+- [Schema.org FAQPage](https://schema.org/FAQPage)
+- [Schema.org Question](https://schema.org/Question)
+- [Schema.org Quotation](https://schema.org/Quotation)
 - [Schema.org ImageObject](https://schema.org/ImageObject)
 - [Schema.org VideoObject](https://schema.org/VideoObject)
 - [Schema.org AudioObject](https://schema.org/AudioObject)
@@ -381,12 +512,14 @@ Les contributions sont les bienvenues !
 ## 📊 Changelog
 
 ### Version 2.1.9
+- ✅ Blocs FAQGEO et BlockquoteGEO ajoutés
 - ✅ Blocs ImageGEO, VideoGEO, AudioGEO opérationnels
-- ✅ Génération JSON-LD automatique
+- ✅ Génération JSON-LD automatique pour tous les types
 - ✅ Lightbox intégrée pour images
 - ✅ Détection automatique YouTube/Vimeo
 - ✅ Support des transcriptions audio
-- ✅ Intégration GEO Authority Suite
+- ✅ Intégration complète GEO Authority Suite
+- ✅ Impact GEO quantifié pour chaque bloc
 
 ---
 
