@@ -1,0 +1,23 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/image-geo",
+  "title": "ImageGEO",
+  "category": "media",
+  "icon": "format-image",
+  "description": "ImageGEO - Image avec JSON-LD (ImageObject).",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "imageId": { "type": "number" },
+    "url": { "type": "string", "default": "" },
+    "fullUrl": { "type": "string", "default": "" },
+    "size": { "type": "string", "default": "large" },
+    "alt": { "type": "string", "default": "" },
+    "caption": { "type": "string", "default": "" },
+    "description": { "type": "string", "default": "" },
+    "creator": { "type": "string", "default": "" },
+    "licenseType": { "type": "string", "default": "cc-by-sa" },
+    "licenseCustom": { "type": "string", "default": "" }
+  }
+}

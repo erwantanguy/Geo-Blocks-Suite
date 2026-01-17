@@ -1,0 +1,30 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/blockquote-geo",
+  "title": "Blockquote GEO",
+  "category": "text",
+  "icon": "format-quote",
+  "description": "Bloc de citation enrichi avec metadonnees Schema.org (SEO et GEO).",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "blockquote p"
+    },
+    "citeUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "author": {
+      "type": "string",
+      "default": ""
+    },
+    "sourceTitle": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

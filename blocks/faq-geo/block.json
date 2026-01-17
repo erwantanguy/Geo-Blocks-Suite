@@ -1,0 +1,17 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/faq-geo",
+  "title": "FAQ GEO",
+  "category": "text",
+  "icon": "editor-help",
+  "description": "Bloc FAQ semantique generant HTML accessible (details/summary) et JSON-LD (FAQPage).",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "questions": {
+      "type": "array",
+      "default": []
+    }
+  }
+}

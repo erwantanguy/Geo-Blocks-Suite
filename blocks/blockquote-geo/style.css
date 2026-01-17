@@ -1,0 +1,42 @@
+.wp-block-geo-blocks-blockquote-geo blockquote {
+  position: relative;
+  border-left: 5px solid #007cba;
+  background: #f9fafc;
+  padding: 1.5em 2em;
+  margin: 1.5em 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #333;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote::before {
+  content: "\201C";
+  font-size: 5em;
+  color: rgba(0, 124, 186, 0.1);
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-family: serif;
+  line-height: 1;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote p {
+  margin: 0 0 1em;
+  position: relative;
+  z-index: 2;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote footer {
+  text-align: right;
+  font-style: normal;
+  font-size: 0.95em;
+  color: #555;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote cite {
+  font-weight: bold;
+  color: #007cba;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote span {
+  font-weight: bold;
+  color: #007cba;
+}

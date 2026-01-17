@@ -1,0 +1,8 @@
+/* AudioGEO - Editor Styles */
+.wp-block-geo-blocks-audio-geo .geo-audio {
+  margin: 0;
+}
+
+.wp-block-geo-blocks-audio-geo audio {
+  margin-top: 12px;
+}

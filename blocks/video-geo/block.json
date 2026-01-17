@@ -1,0 +1,64 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/video-geo",
+  "version": "1.0.1",
+  "title": "VideoGEO",
+  "category": "media",
+  "icon": "video-alt3",
+  "description": "Bloc vidéo avec métadonnées Schema.org VideoObject - Support fichier, YouTube, Vimeo, Dailymotion",
+  "keywords": ["video", "media", "geo", "schema", "youtube", "vimeo", "dailymotion"],
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "sourceType": {
+      "type": "string",
+      "default": "file"
+    },
+    "videoId": {
+      "type": "number"
+    },
+    "url": {
+      "type": "string",
+      "default": ""
+    },
+    "posterUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "externalUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "externalPlatform": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "duration": {
+      "type": "string",
+      "default": ""
+    },
+    "creator": {
+      "type": "string",
+      "default": ""
+    },
+    "licenseType": {
+      "type": "string",
+      "default": "cc-by-sa"
+    },
+    "licenseCustom": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  }
+}

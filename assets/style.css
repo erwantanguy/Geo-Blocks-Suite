@@ -1,0 +1,202 @@
+/* GEO Blocks Suite - Global Styles */
+
+/* Common media styles */
+.geo-media {
+  margin: 1.5rem 0;
+  text-align: center;
+  max-width: 100%;
+}
+.geo-media img,
+.geo-media video,
+.geo-media audio {
+  max-width: 100%;
+/*  height: auto;*/
+  border-radius: 6px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.geo-media figcaption {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+.geo-media .license {
+  font-size: 0.85em;
+  color: #555;
+}
+
+/* Credits (auteur + licence) */
+.geo-credits {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.geo-credits .geo-creator {
+  font-style: italic;
+}
+.geo-credits .geo-license {
+  color: #007cba;
+  text-decoration: none;
+}
+.geo-credits .geo-license:hover {
+  text-decoration: underline;
+}
+
+/* Transcript */
+.transcript {
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+  overflow: auto;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.4;
+}
+.transcript pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+
+/* Video specific */
+.geo-video {
+  margin: 20px 0;
+}
+.geo-video iframe,
+.geo-video video {
+  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+/* Lightbox */
+.geo-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 20px;
+}
+.geo-modal-content {
+  position: relative;
+  max-width: 96%;
+  max-height: 96%;
+  animation: geoFadeIn 0.25s ease-in;
+}
+.geo-modal img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: block;
+}
+.geo-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+@keyframes geoFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.geo-lightbox:focus,
+.geo-close:focus {
+  outline: 2px solid #007cba;
+  outline-offset: 2px;
+}
+
+/* Blockquote GEO */
+.wp-block-geo-blocks-blockquote-geo blockquote,
+.wp-block-ticoet-blockquotegeo blockquote {
+  position: relative;
+  border-left: 5px solid #007cba;
+  background: #f9fafc;
+  padding: 1.5em 2em;
+  margin: 1.5em 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #333;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote::before,
+.wp-block-ticoet-blockquotegeo blockquote::before {
+  content: "\201C";
+  font-size: 5em;
+  color: rgba(0, 124, 186, 0.1);
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-family: serif;
+  line-height: 1;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote p,
+.wp-block-ticoet-blockquotegeo blockquote p {
+  margin: 0 0 1em;
+  position: relative;
+  z-index: 2;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote footer,
+.wp-block-ticoet-blockquotegeo blockquote footer {
+  text-align: right;
+  font-style: normal;
+  font-size: 0.95em;
+  color: #555;
+  position: relative;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote cite,
+.wp-block-ticoet-blockquotegeo blockquote cite {
+  font-weight: bold;
+  color: #007cba;
+  display: inline-block !important;
+  padding-left: 0;
+}
+.wp-block-geo-blocks-blockquote-geo blockquote span,
+.wp-block-ticoet-blockquotegeo blockquote span {
+  font-weight: bold;
+  color: #007cba;
+}
+
+/* FAQ GEO */
+.faq-geo,
+.wp-block-geo-blocks-faq-geo {
+  margin: 1rem 0;
+  padding: 0;
+}
+.faq-geo details,
+.wp-block-geo-blocks-faq-geo details {
+  border: 1px solid #e6e6e6;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  background: #fff;
+}
+.faq-geo summary,
+.wp-block-geo-blocks-faq-geo summary {
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+.faq-geo p,
+.wp-block-geo-blocks-faq-geo p {
+  margin: 0.5rem 0 0 0;
+  color: #333;
+  line-height: 1.5;
+}

@@ -1,0 +1,25 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/audio-geo",
+  "version": "1.0.0",
+  "title": "AudioGEO",
+  "category": "media",
+  "icon": "format-audio",
+  "description": "Bloc audio avec metadonnees Schema.org AudioObject",
+  "keywords": ["audio", "podcast", "media", "geo", "schema"],
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "audioId": { "type": "number" },
+    "url": { "type": "string", "default": "" },
+    "title": { "type": "string", "default": "" },
+    "description": { "type": "string", "default": "" },
+    "duration": { "type": "string", "default": "" },
+    "creator": { "type": "string", "default": "" },
+    "licenseType": { "type": "string", "default": "cc-by-sa" },
+    "licenseCustom": { "type": "string", "default": "" }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  }
+}

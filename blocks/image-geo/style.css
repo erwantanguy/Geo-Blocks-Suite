@@ -1,0 +1,15 @@
+.geo-media.geo-image {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.geo-media.geo-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.geo-media.geo-image figcaption {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+  font-style: italic;
+}

@@ -1,0 +1,74 @@
+/* VideoGEO - Editor Styles */
+
+/* Onglets */
+.geo-video-tabs {
+  margin-bottom: 16px;
+}
+
+.geo-video-tabs .components-tab-panel__tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 16px;
+}
+
+.geo-video-tabs .components-tab-panel__tabs-item {
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.geo-video-tabs .components-tab-panel__tabs-item:hover {
+  background: #f0f0f0;
+}
+
+.geo-video-tabs .components-tab-panel__tabs-item.is-active {
+  border-bottom-color: #2271b1;
+  color: #2271b1;
+}
+
+/* Zone d'upload */
+.geo-video-upload {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* Conteneur vidéo */
+.wp-block-geo-blocks-video-geo .geo-video {
+  margin: 0;
+}
+
+.wp-block-geo-blocks-video-geo video {
+  max-height: 400px;
+}
+
+.wp-block-geo-blocks-video-geo iframe {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+/* Notice pour la plateforme */
+.geo-video-external-tab .components-notice {
+  margin-bottom: 12px;
+}
+
+/* Style pour la zone vide */
+.geo-video-placeholder {
+  padding: 40px;
+  border: 2px dashed #ddd;
+  border-radius: 4px;
+  text-align: center;
+  color: #666;
+}
+
+.geo-video-placeholder-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
