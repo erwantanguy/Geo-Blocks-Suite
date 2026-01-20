@@ -7,12 +7,18 @@
   max-width: 100%;
 }
 .geo-media img,
-.geo-media video,
-.geo-media audio {
+.geo-media video {
   max-width: 100%;
-/*  height: auto;*/
+  height: auto;
   border-radius: 6px;
   display: inline-block;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.geo-media audio {
+  max-width: 100%;
+  min-height: 54px;
+  border-radius: 6px;
+  display: block;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 .geo-media figcaption {
