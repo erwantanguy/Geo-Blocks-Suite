@@ -1,0 +1,29 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/tldr-geo",
+  "title": "TL;DR GEO",
+  "category": "text",
+  "icon": "excerpt-view",
+  "description": "Resume court optimise pour les IA (TL;DR) avec Schema.org abstract.",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": "En bref"
+    },
+    "style": {
+      "type": "string",
+      "default": "default"
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

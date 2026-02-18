@@ -1,0 +1,89 @@
+.wp-block-geo-blocks-howto-geo .geo-howto-box {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 1.5em 2em;
+  margin: 1.5em 0;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-header {
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-title {
+  margin: 0 0 0.5em;
+  font-size: 1.4em;
+  color: #1e293b;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-description {
+  margin: 0;
+  color: #64748b;
+  font-size: 1em;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-meta {
+  display: flex;
+  gap: 1.5em;
+  margin-top: 1em;
+  font-size: 0.9em;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-time {
+  color: #475569;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-difficulty {
+  font-weight: 500;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: step-counter;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-step {
+  display: flex;
+  gap: 1em;
+  padding: 1em 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-step:last-child {
+  border-bottom: none;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1em;
+  flex-shrink: 0;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-step-content {
+  flex: 1;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-step-title {
+  display: block;
+  margin-bottom: 0.25em;
+  color: #1e293b;
+  font-size: 1.05em;
+}
+
+.wp-block-geo-blocks-howto-geo .geo-howto-step-text {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}

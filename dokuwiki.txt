@@ -1,0 +1,706 @@
+====== GEO Blocks Suite ======
+
+[[https://dl.ticoet.me/downloads/1-SEO-GEO/2-entity-authority-signals-v1/geo-blocks-suite-v1.2.0.zip|Télécharger le plugin]]
+
+  * **Version** : 1.2.0  
+  * **Licence** : GPL2+  
+  * **Compatibilité** : WordPress 6.0+, PHP 7.4+, Gutenberg
+
+> Blocs Gutenberg optimisés pour le **GEO (Generative Engine Optimization)** avec génération automatique de JSON-LD Schema.org
+
+Enrichissez vos contenus WordPress avec des blocs structurés que les moteurs d'IA (ChatGPT, Claude, Perplexity, Gemini) peuvent facilement comprendre, indexer et citer.
+
+===== Objectifs =====
+
+  * **Structurer** le contenu pour les IA génératives
+  * **Générer automatiquement** du JSON-LD Schema.org pour chaque bloc
+  * **Améliorer la visibilité** dans les résultats des moteurs IA
+  * **Faciliter les citations** par les assistants conversationnels
+  * **Renforcer l'E-E-A-T** (Expertise, Experience, Authoritativeness, Trustworthiness)
+
+===== Les 11 blocs disponibles =====
+
+==== Blocs de contenu structuré ====
+
+^ Bloc ^ Type Schema.org ^ Fonctionnalités clés ^
+| **TL;DR GEO** | ''WebPageElement'' + ''abstract'' | Résumé court (280 car.), 5 styles, extraction rapide par IA |
+| **How-To GEO** | ''HowTo'' + ''HowToStep'' | Tutoriel étape par étape, durée, difficulté |
+| **Définition GEO** | ''DefinedTerm'' | Terme + définition, source optionnelle, 4 styles |
+| **FAQ GEO** | ''FAQPage'' + ''Question'' | Questions/réponses structurées, accordéon |
+
+==== Blocs d'évaluation ====
+
+^ Bloc ^ Type Schema.org ^ Fonctionnalités clés ^
+| **Pros/Cons GEO** | ''Review'' + ''positiveNotes/negativeNotes'' | Avantages/inconvénients, disposition flexible |
+| **Stats GEO** | ''Observation'' | Chiffre clé, unité, source, 5 styles, 3 tailles |
+
+==== Blocs E-E-A-T ====
+
+^ Bloc ^ Type Schema.org ^ Fonctionnalités clés ^
+| **Author Box GEO** | ''Person'' + ''sameAs'' | Photo, bio, liens sociaux, 4 styles |
+| **Blockquote GEO** | ''Quotation'' + ''Person'' | Citation avec auteur et source |
+
+==== Blocs médias ====
+
+^ Bloc ^ Type Schema.org ^ Fonctionnalités clés ^
+| **Image GEO** | ''ImageObject'' | Upload, métadonnées, lightbox, licence |
+| **Video GEO** | ''VideoObject'' | Local ou YouTube/Vimeo, embed auto |
+| **Audio GEO** | ''AudioObject'' | Upload, transcription, lecteur intégré |
+
+---
+
+====== TL;DR GEO ======
+
+===== Objectif =====
+
+Résumer l'essentiel d'un article en 1-3 phrases pour une extraction optimale par les IA.
+
+===== Fonctionnalités =====
+
+  * **Compteur de caractères** : Alerte au-delà de 280 caractères
+  * **Titres prédéfinis** : "En bref", "TL;DR", "À retenir", "L'essentiel", "Résumé" ou personnalisé
+  * **5 styles visuels** : Bleu, Vert, Orange, Violet, Minimal
+  * **Icône optionnelle** : 💡
+  * **JSON-LD WebPageElement** + balise ''<meta itemprop="abstract">''
+
+===== Structure HTML générée =====
+
+<code html>
+<div class="geo-tldr geo-tldr-style-default">
+    <aside class="geo-tldr-box" data-geo-tldr="true" role="note" aria-label="En bref">
+        <div class="geo-tldr-header">
+            <span class="geo-tldr-icon">💡</span>
+            <strong class="geo-tldr-title">En bref</strong>
+        </div>
+        <p class="geo-tldr-content">Résumé de l'article en une ou deux phrases...</p>
+    </aside>
+    <meta itemprop="abstract" content="Résumé de l'article...">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPageElement",
+        "name": "En bref",
+        "text": "Résumé de l'article...",
+        "cssSelector": ".geo-tldr-box"
+    }
+    </script>
+</div>
+</code>
+
+===== Bonnes pratiques =====
+
+  * **Moins de 280 caractères** pour extraction optimale
+  * Placer **en début d'article** (après l'introduction)
+  * Répondre à la **question principale** de l'article
+  * Éviter le jargon technique
+  * **1 seul TL;DR** par article
+
+---
+
+====== How-To GEO ======
+
+===== Objectif =====
+
+Créer des tutoriels étape par étape avec JSON-LD HowTo pour un référencement optimal.
+
+===== Fonctionnalités =====
+
+  * **Titre et description** du tutoriel
+  * **Étapes illimitées** : Ajout, suppression, réorganisation
+  * **Métadonnées** : Durée totale, difficulté (Facile/Moyen/Difficile)
+  * **Numérotation** optionnelle des étapes
+  * **JSON-LD HowTo** avec ''HowToStep'' généré automatiquement
+  * **Impact GEO maximal** : Format le plus extrait par les IA
+
+===== Structure HTML générée =====
+
+<code html>
+<div class="geo-howto">
+    <div class="geo-howto-box" data-geo-howto="true">
+        <div class="geo-howto-header">
+            <h3 class="geo-howto-title">Comment créer un site WordPress</h3>
+            <p class="geo-howto-description">Guide complet en 5 étapes...</p>
+            <div class="geo-howto-meta">
+                <span class="geo-howto-time">⏱ 30 minutes</span>
+                <span class="geo-howto-difficulty">🟢 Facile</span>
+            </div>
+        </div>
+        <ol class="geo-howto-steps">
+            <li class="geo-howto-step">
+                <span class="geo-howto-step-number">1</span>
+                <div class="geo-howto-step-content">
+                    <strong>Choisir un hébergeur</strong>
+                    <p>Sélectionnez un hébergeur fiable...</p>
+                </div>
+            </li>
+            <!-- Autres étapes -->
+        </ol>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Comment créer un site WordPress",
+        "description": "Guide complet en 5 étapes...",
+        "totalTime": "30 minutes",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Choisir un hébergeur",
+                "text": "Sélectionnez un hébergeur fiable..."
+            }
+        ]
+    }
+    </script>
+</div>
+</code>
+
+===== Bonnes pratiques =====
+
+  * **5 à 10 étapes** maximum pour une lecture fluide
+  * Chaque étape = **une action concrète**
+  * Ajouter la **durée estimée** (améliore le CTR Google)
+  * Indiquer la **difficulté** pour guider l'utilisateur
+  * **Titres d'étapes courts** et explicites
+
+---
+
+====== Définition GEO ======
+
+===== Objectif =====
+
+Répondre aux requêtes "Qu'est-ce que..." avec des définitions structurées.
+
+===== Fonctionnalités =====
+
+  * **Terme à définir** : Mot ou concept
+  * **Définition** : Texte explicatif complet
+  * **Source optionnelle** : Nom et URL de la source
+  * **4 styles visuels** : Dictionnaire (bleu), Carte (blanc), Surligné (jaune), Minimal
+  * **JSON-LD DefinedTerm** généré automatiquement
+
+===== Structure HTML générée =====
+
+<code html>
+<div class="geo-definition geo-definition-style-default">
+    <dl class="geo-definition-box" data-geo-definition="true">
+        <div class="geo-definition-header">
+            <span class="geo-definition-icon">📖</span>
+            <span class="geo-definition-label">Définition</span>
+        </div>
+        <dt class="geo-definition-term">GEO</dt>
+        <dd class="geo-definition-text">
+            Generative Engine Optimization : ensemble de techniques visant à optimiser 
+            le contenu pour les moteurs de recherche basés sur l'IA générative.
+        </dd>
+        <div class="geo-definition-source">
+            Source : <a href="https://example.com">Wikipedia</a>
+        </div>
+    </dl>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "DefinedTerm",
+        "name": "GEO",
+        "description": "Generative Engine Optimization...",
+        "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "Wikipedia",
+            "url": "https://example.com"
+        }
+    }
+    </script>
+</div>
+</code>
+
+===== Bonnes pratiques =====
+
+  * **Définition claire** en 1-3 phrases
+  * Citer une **source fiable** (Wikipedia, dictionnaire officiel)
+  * Utiliser pour les **termes techniques** ou jargon
+  * Placer **avant la première utilisation** du terme
+  * Style "Surligné" pour les termes **importants**
+
+---
+
+====== Pros/Cons GEO ======
+
+===== Objectif =====
+
+Présenter les avantages et inconvénients de manière structurée pour faciliter la décision.
+
+===== Fonctionnalités =====
+
+  * **Listes dynamiques** : Avantages (✅) et Inconvénients (❌)
+  * **Disposition flexible** : Côte à côte ou empilé
+  * **Labels personnalisables** : "Avantages/Inconvénients", "Pour/Contre", etc.
+  * **Titre optionnel** : Sujet de la comparaison
+  * **JSON-LD Review** avec ''positiveNotes'' et ''negativeNotes''
+  * **Format décisionnel** très cité par les IA
+
+===== Structure HTML générée =====
+
+<code html>
+<div class="geo-proscons geo-proscons-layout-side-by-side">
+    <div class="geo-proscons-box" data-geo-proscons="true">
+        <h4 class="geo-proscons-title">WordPress vs Wix</h4>
+        <div class="geo-proscons-columns">
+            <div class="geo-proscons-column geo-proscons-pros">
+                <div class="geo-proscons-header">
+                    <span class="geo-proscons-icon">✅</span>
+                    <span class="geo-proscons-label">Avantages</span>
+                </div>
+                <ul class="geo-proscons-list">
+                    <li>Flexibilité totale</li>
+                    <li>Open source</li>
+                    <li>Grande communauté</li>
+                </ul>
+            </div>
+            <div class="geo-proscons-column geo-proscons-cons">
+                <div class="geo-proscons-header">
+                    <span class="geo-proscons-icon">❌</span>
+                    <span class="geo-proscons-label">Inconvénients</span>
+                </div>
+                <ul class="geo-proscons-list">
+                    <li>Courbe d'apprentissage</li>
+                    <li>Maintenance requise</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "name": "WordPress vs Wix",
+        "positiveNotes": {
+            "@type": "ItemList",
+            "itemListElement": [...]
+        },
+        "negativeNotes": {
+            "@type": "ItemList",
+            "itemListElement": [...]
+        }
+    }
+    </script>
+</div>
+</code>
+
+===== Bonnes pratiques =====
+
+  * **Équilibrer** le nombre d'avantages et d'inconvénients
+  * Être **objectif** et honnête
+  * **3 à 7 points** par colonne (ni trop peu, ni trop)
+  * Utiliser pour les **comparatifs produits/services**
+  * Idéal pour les articles "avis" et "test"
+
+---
+
+====== Author Box GEO ======
+
+===== Objectif =====
+
+Renforcer l'E-E-A-T en présentant l'expertise de l'auteur.
+
+===== Fonctionnalités =====
+
+  * **Photo** : Upload depuis la médiathèque
+  * **Informations** : Nom, titre/fonction, biographie
+  * **Liens sociaux** : Site web, LinkedIn, Twitter, Email
+  * **4 styles** : Classique, Carte, Minimal, Horizontal
+  * **JSON-LD Person** avec ''sameAs'' pour les profils sociaux
+  * **Crucial pour E-E-A-T** : Google valorise l'expertise de l'auteur
+
+===== Structure HTML générée =====
+
+<code html>
+<div class="geo-author geo-author-style-default">
+    <aside class="geo-author-box" data-geo-author="true" 
+           itemscope itemtype="https://schema.org/Person">
+        <div class="geo-author-avatar">
+            <img src="photo.jpg" alt="Jean Dupont" itemprop="image">
+        </div>
+        <div class="geo-author-info">
+            <div class="geo-author-label">À propos de l'auteur</div>
+            <h4 class="geo-author-name" itemprop="name">Jean Dupont</h4>
+            <p class="geo-author-job" itemprop="jobTitle">Expert SEO/GEO</p>
+            <p class="geo-author-bio" itemprop="description">
+                10 ans d'expérience en référencement...
+            </p>
+            <div class="geo-author-links">
+                <a href="https://site.com" itemprop="url">🌐</a>
+                <a href="https://linkedin.com/in/..." itemprop="sameAs">💼</a>
+                <a href="https://twitter.com/..." itemprop="sameAs">🐦</a>
+                <a href="mailto:..." itemprop="email">✉️</a>
+            </div>
+        </div>
+    </aside>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jean Dupont",
+        "jobTitle": "Expert SEO/GEO",
+        "description": "10 ans d'expérience...",
+        "image": "photo.jpg",
+        "url": "https://site.com",
+        "sameAs": ["https://linkedin.com/in/...", "https://twitter.com/..."]
+    }
+    </script>
+</div>
+</code>
+
+===== Bonnes pratiques =====
+
+  * **Photo professionnelle** (pas de logo)
+  * **Titre clair** indiquant l'expertise
+  * **Biographie courte** (2-3 phrases)
+  * Lier vers **profils LinkedIn/Twitter** vérifiés
+  * Placer **en fin d'article** ou dans la sidebar
+  * Un auteur par article (cohérence E-E-A-T)
+
+---
+
+====== Stats GEO ======
+
+===== Objectif =====
+
+Mettre en avant un chiffre clé pour renforcer la crédibilité et l'impact.
+
+===== Fonctionnalités =====
+
+  * **Valeur** : Le chiffre principal
+  * **Unité** : %, €, M, k, etc.
+  * **Label** : Description du chiffre
+  * **Source** : Nom, URL et année
+  * **3 tailles** : Petit, Moyen, Grand
+  * **5 styles** : Bleu, Violet, Vert, Rouge, Minimal
+  * **JSON-LD Observation** généré automatiquement
+
+===== Structure HTML générée =====
+
+<code html>
+<div class="geo-stats geo-stats-style-default geo-stats-size-medium">
+    <figure class="geo-stats-box" data-geo-stats="true">
+        <div class="geo-stats-value-wrapper">
+            <span class="geo-stats-value">85</span>
+            <span class="geo-stats-unit">%</span>
+        </div>
+        <figcaption class="geo-stats-label">
+            des entreprises utilisent l'IA en 2024
+        </figcaption>
+        <div class="geo-stats-source">
+            Source : <a href="https://...">Gartner</a> (2024)
+        </div>
+    </figure>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Observation",
+        "value": "85%",
+        "name": "des entreprises utilisent l'IA en 2024",
+        "observedBy": {
+            "@type": "Organization",
+            "name": "Gartner",
+            "url": "https://..."
+        },
+        "observationDate": "2024"
+    }
+    </script>
+</div>
+</code>
+
+===== Bonnes pratiques =====
+
+  * **Chiffre impactant** (éviter les valeurs banales)
+  * **Toujours citer la source** avec URL
+  * Indiquer l'**année** des données
+  * Style "Rouge" pour les **alertes/dangers**
+  * Style "Vert" pour les **résultats positifs**
+  * Taille "Grand" pour les chiffres **clés de l'article**
+
+---
+
+====== FAQ GEO ======
+
+===== Objectif =====
+
+Créer des FAQ structurées avec JSON-LD FAQPage pour optimiser l'indexation par les IA.
+
+===== Fonctionnalités =====
+
+  * **Interface Q&A** : Ajout/suppression de questions-réponses
+  * **Questions multiples** : Nombre illimité de paires Q/R
+  * **Accordéon interactif** : Affichage/masquage des réponses
+  * **JSON-LD FAQPage** généré automatiquement
+  * **Impact GEO maximal** : +30 points au score
+
+===== Structure HTML générée =====
+
+<code html>
+<div class="geo-faq">
+    <details>
+        <summary>Question 1 ?</summary>
+        <p>Réponse à la question 1.</p>
+    </details>
+    <details>
+        <summary>Question 2 ?</summary>
+        <p>Réponse à la question 2.</p>
+    </details>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Question 1 ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Réponse à la question 1."
+            }
+        }
+    ]
+}
+</script>
+</code>
+
+===== Bonnes pratiques =====
+
+  * Minimum **2 questions** par FAQ
+  * Questions **naturelles** (comment, pourquoi, quand...)
+  * Réponses **complètes** et précises (50-300 mots)
+  * Utiliser des **mots-clés** pertinents
+  * **1 seul bloc FAQ** par article recommandé
+
+---
+
+====== Blockquote GEO ======
+
+===== Objectif =====
+
+Ajouter des citations avec attribution d'auteur et source pour renforcer la crédibilité.
+
+===== Fonctionnalités =====
+
+  * **Champs métadonnées** :
+    * **Citation** : Texte de la citation
+    * **Auteur** : Nom de la personne citée
+    * **Source** : URL ou référence de la source
+    * **Date** : Date de la citation (optionnel)
+  * **JSON-LD Quotation** généré automatiquement
+  * **Impact GEO élevé** : +15 points au score
+
+===== Structure HTML générée =====
+
+<code html>
+<blockquote class="geo-blockquote" cite="[URL_SOURCE]">
+    <p>[TEXTE_CITATION]</p>
+    <footer>
+        — <cite>[AUTEUR]</cite>
+        <a href="[URL_SOURCE]" target="_blank">[SOURCE]</a>
+    </footer>
+</blockquote>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Quotation",
+    "text": "Texte de la citation",
+    "author": {
+        "@type": "Person",
+        "name": "Nom de l'auteur"
+    },
+    "isBasedOn": {
+        "@type": "CreativeWork",
+        "url": "https://example.com/source"
+    }
+}
+</script>
+</code>
+
+===== Bonnes pratiques =====
+
+  * **Toujours citer la source** (URL ou référence)
+  * Citations **courtes** (< 300 caractères)
+  * Vérifier l'**exactitude** de la citation
+  * Utiliser des **citations d'experts** reconnus
+  * **Varier les sources** pour plus de crédibilité
+
+---
+
+====== Image GEO ======
+
+===== Objectif =====
+
+Ajouter des images avec métadonnées complètes et JSON-LD automatique.
+
+===== Fonctionnalités =====
+
+  * Upload ou sélection depuis la médiathèque WordPress
+  * **Champs métadonnées** :
+    * **Titre** (''name'')
+    * **Description** (''description'') → attribut ''alt''
+    * **Légende** (''caption'')
+    * **Licence** (''license'') - URL Creative Commons
+  * **Lightbox intégrée** pour affichage plein écran
+  * **JSON-LD ImageObject** généré automatiquement
+
+===== Bonnes pratiques =====
+
+  * Toujours remplir le champ **Description** (utilisé pour ''alt'')
+  * Ajouter une **Licence** explicite (Creative Commons recommandé)
+  * Utiliser des images optimisées (WebP privilégié)
+  * Ajouter une légende descriptive pour le contexte
+
+---
+
+====== Video GEO ======
+
+===== Objectif =====
+
+Intégrer des vidéos (hébergées ou externes) avec métadonnées Schema.org.
+
+===== Fonctionnalités =====
+
+  * **Upload vidéo** directement sur WordPress
+  * **Vidéos externes** : YouTube, Vimeo (détection automatique)
+  * **Champs métadonnées** : Titre, Description, Licence
+  * **JSON-LD VideoObject** généré automatiquement
+  * **Conversion automatique** des URLs YouTube/Vimeo en embed
+
+===== Formats supportés =====
+
+^ Type ^ Formats ^
+| **Hébergement local** | MP4, WebM, OGG |
+| **YouTube** | URL standard ou ''youtu.be'' |
+| **Vimeo** | URL standard |
+
+---
+
+====== Audio GEO ======
+
+===== Objectif =====
+
+Intégrer des fichiers audio avec métadonnées complètes et transcription optionnelle.
+
+===== Fonctionnalités =====
+
+  * Upload de fichiers audio (MP3, OGG, WAV)
+  * **Champs métadonnées** : Titre, Description, Licence
+  * **Transcription** : Texte intégral de l'audio
+  * **JSON-LD AudioObject** généré automatiquement
+
+===== Bonnes pratiques =====
+
+  * **Toujours ajouter une transcription** : essentiel pour accessibilité et GEO
+  * Utiliser le format **MP3** (meilleure compatibilité)
+  * Optimiser qualité/poids (128-192 kbps pour la voix)
+
+---
+
+====== Impact GEO par bloc ======
+
+^ Bloc ^ Impact GEO ^ Points ^
+| **How-To GEO** | Très élevé | +30 |
+| **FAQ GEO** | Très élevé | +30 |
+| **TL;DR GEO** | Élevé | +20 |
+| **Définition GEO** | Élevé | +20 |
+| **Pros/Cons GEO** | Élevé | +15 |
+| **Author Box GEO** | Élevé (E-E-A-T) | +15 |
+| **Blockquote GEO** | Moyen | +15 |
+| **Stats GEO** | Moyen | +10 |
+| **Image GEO** | Moyen | +10 |
+| **Video GEO** | Moyen | +10 |
+| **Audio GEO** | Faible | +5 |
+
+===== Combinaisons recommandées =====
+
+^ Type d'article ^ Blocs recommandés ^ Score GEO visé ^
+| **Tutoriel** | How-To + TL;DR + Author Box | 80+ |
+| **Guide complet** | TL;DR + FAQ + Définitions + Images | 85+ |
+| **Comparatif/Test** | Pros/Cons + Stats + TL;DR | 75+ |
+| **Article expert** | Author Box + Citations + Stats | 70+ |
+| **Glossaire** | Définitions multiples | 60+ |
+
+---
+
+====== Installation ======
+
+  - Téléchargez le plugin depuis le lien ci-dessus
+  - Uploadez dans ''/wp-content/plugins/''
+  - Activez depuis **Extensions > Extensions installées**
+  - Les blocs apparaissent dans Gutenberg (rechercher "GEO")
+
+---
+
+====== Compatibilité ======
+
+===== Prérequis =====
+
+  * **WordPress** : 6.0+
+  * **PHP** : 7.4+
+  * **Éditeur** : Gutenberg activé
+
+===== Compatibilité testée =====
+
+^ Catégorie ^ Compatible ^
+| **Thèmes** | Tous les thèmes Gutenberg |
+| **Plugins SEO** | Yoast, Rank Math, SEOPress, All in One SEO |
+| **GEO Authority Suite** | Intégration complète |
+
+---
+
+====== Ressources Schema.org ======
+
+  * [[https://schema.org/HowTo|Schema.org HowTo]]
+  * [[https://schema.org/DefinedTerm|Schema.org DefinedTerm]]
+  * [[https://schema.org/Review|Schema.org Review]]
+  * [[https://schema.org/Person|Schema.org Person]]
+  * [[https://schema.org/FAQPage|Schema.org FAQPage]]
+  * [[https://schema.org/Quotation|Schema.org Quotation]]
+  * [[https://schema.org/ImageObject|Schema.org ImageObject]]
+  * [[https://schema.org/VideoObject|Schema.org VideoObject]]
+  * [[https://schema.org/AudioObject|Schema.org AudioObject]]
+  * [[https://validator.schema.org/|Schema.org Validator]]
+  * [[https://search.google.com/test/rich-results|Google Rich Results Test]]
+
+---
+
+====== Changelog ======
+
+===== Version 1.2.0 =====
+
+  * **Ajout** : TL;DR GEO - Résumé optimisé IA
+  * **Ajout** : How-To GEO - Tutoriels structurés
+  * **Ajout** : Définition GEO - Termes et définitions
+  * **Ajout** : Pros/Cons GEO - Avantages/Inconvénients
+  * **Ajout** : Author Box GEO - Encart auteur E-E-A-T
+  * **Ajout** : Stats GEO - Chiffres clés
+
+===== Version 1.0.1 =====
+
+  * **Ajout** : Audio GEO avec transcription
+  * Corrections mineures
+
+===== Version 1.0.0 =====
+
+  * Version initiale
+  * Blocs : FAQ GEO, Blockquote GEO, Image GEO, Video GEO
+
+---
+
+====== Support ======
+
+**Auteur** : Erwan Tanguy - Ticoët  
+**Site** : [[https://www.ticoet.fr/|ticoet.fr]]  
+**Licence** : GPL2+
+
+---
+
+<WRAP center round tip 60%>
+**GEO Blocks Suite = Votre contenu optimisé pour l'ère de l'IA** 🚀
+</WRAP>

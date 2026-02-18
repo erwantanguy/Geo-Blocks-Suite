@@ -1,0 +1,45 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/stats-geo",
+  "title": "Stats GEO",
+  "category": "text",
+  "icon": "chart-bar",
+  "description": "Chiffre cle ou statistique mise en avant pour SEO et GEO.",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "value": {
+      "type": "string",
+      "default": ""
+    },
+    "unit": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "source": {
+      "type": "string",
+      "default": ""
+    },
+    "sourceUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "year": {
+      "type": "string",
+      "default": ""
+    },
+    "style": {
+      "type": "string",
+      "default": "default"
+    },
+    "size": {
+      "type": "string",
+      "default": "medium"
+    }
+  }
+}

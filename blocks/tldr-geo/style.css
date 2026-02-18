@@ -1,0 +1,101 @@
+.wp-block-geo-blocks-tldr-geo .geo-tldr {
+  margin: 1.5em 0;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-box {
+  border-radius: 8px;
+  padding: 1.25em 1.5em;
+  position: relative;
+  overflow: hidden;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-icon {
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-title {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-content {
+  margin: 0;
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+
+/* Style Default (Bleu) */
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-default .geo-tldr-box {
+  background: linear-gradient(135deg, #e8f4fd 0%, #d6ebf9 100%);
+  border-left: 4px solid #007cba;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-default .geo-tldr-title {
+  color: #005a8c;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-default .geo-tldr-content {
+  color: #1a3a4d;
+}
+
+/* Style Success (Vert) */
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-success .geo-tldr-box {
+  background: linear-gradient(135deg, #e8f8ed 0%, #d4f0dc 100%);
+  border-left: 4px solid #28a745;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-success .geo-tldr-title {
+  color: #1e7e34;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-success .geo-tldr-content {
+  color: #1d4a28;
+}
+
+/* Style Warning (Orange) */
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-warning .geo-tldr-box {
+  background: linear-gradient(135deg, #fff8e6 0%, #fff0cc 100%);
+  border-left: 4px solid #ffc107;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-warning .geo-tldr-title {
+  color: #b38600;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-warning .geo-tldr-content {
+  color: #594300;
+}
+
+/* Style Info (Violet) */
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-info .geo-tldr-box {
+  background: linear-gradient(135deg, #f3e8ff 0%, #e8d4ff 100%);
+  border-left: 4px solid #9b59b6;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-info .geo-tldr-title {
+  color: #7b2d96;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-info .geo-tldr-content {
+  color: #4a1d5c;
+}
+
+/* Style Minimal (Gris) */
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-minimal .geo-tldr-box {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-left: 4px solid #6c757d;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-minimal .geo-tldr-title {
+  color: #495057;
+}
+.wp-block-geo-blocks-tldr-geo .geo-tldr-style-minimal .geo-tldr-content {
+  color: #212529;
+}
+
+/* Meta tag hidden */
+.wp-block-geo-blocks-tldr-geo meta[itemprop="abstract"] {
+  display: none;
+}

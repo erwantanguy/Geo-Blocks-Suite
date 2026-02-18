@@ -1,0 +1,100 @@
+.wp-block-geo-blocks-proscons-geo .geo-proscons-box {
+  margin: 1.5em 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-title {
+  text-align: center;
+  margin: 0;
+  padding: 1em;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.wp-block-geo-blocks-proscons-geo.geo-proscons-layout-side-by-side .geo-proscons-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.wp-block-geo-blocks-proscons-geo.geo-proscons-layout-stacked .geo-proscons-columns {
+  display: block;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-column {
+  padding: 1.25em;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-pros {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border-left: 4px solid #10b981;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-cons {
+  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+  border-left: 4px solid #ef4444;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-icon {
+  font-size: 1.2em;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-pros .geo-proscons-label {
+  color: #047857;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-cons .geo-proscons-label {
+  color: #b91c1c;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-list li {
+  padding: 0.5em 0;
+  padding-left: 1.5em;
+  position: relative;
+  line-height: 1.5;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-pros .geo-proscons-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-cons .geo-proscons-list li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-pros .geo-proscons-list li {
+  color: #065f46;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-cons .geo-proscons-list li {
+  color: #991b1b;
+}
+
+@media (max-width: 768px) {
+  .wp-block-geo-blocks-proscons-geo.geo-proscons-layout-side-by-side .geo-proscons-columns {
+    grid-template-columns: 1fr;
+  }
+}

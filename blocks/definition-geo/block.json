@@ -1,0 +1,33 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/definition-geo",
+  "title": "Definition GEO",
+  "category": "text",
+  "icon": "book-alt",
+  "description": "Definition de terme avec Schema.org DefinedTerm pour SEO et GEO.",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "term": {
+      "type": "string",
+      "default": ""
+    },
+    "definition": {
+      "type": "string",
+      "default": ""
+    },
+    "source": {
+      "type": "string",
+      "default": ""
+    },
+    "sourceUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "style": {
+      "type": "string",
+      "default": "default"
+    }
+  }
+}

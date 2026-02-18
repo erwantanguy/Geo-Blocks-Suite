@@ -1,0 +1,37 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/proscons-geo",
+  "title": "Pros/Cons GEO",
+  "category": "text",
+  "icon": "columns",
+  "description": "Liste avantages/inconvenients avec Schema.org Review pour SEO et GEO.",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "pros": {
+      "type": "array",
+      "default": []
+    },
+    "cons": {
+      "type": "array",
+      "default": []
+    },
+    "prosLabel": {
+      "type": "string",
+      "default": "Avantages"
+    },
+    "consLabel": {
+      "type": "string",
+      "default": "Inconvenients"
+    },
+    "layout": {
+      "type": "string",
+      "default": "side-by-side"
+    }
+  }
+}

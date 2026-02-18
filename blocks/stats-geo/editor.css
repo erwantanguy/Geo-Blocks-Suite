@@ -1,0 +1,82 @@
+.wp-block-geo-blocks-stats-geo.geo-stats {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.wp-block-geo-blocks-stats-geo .geo-stats-box {
+  text-align: center;
+  padding: 1.5em;
+}
+
+.wp-block-geo-blocks-stats-geo .geo-stats-value-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.1em;
+}
+
+.wp-block-geo-blocks-stats-geo .geo-stats-value {
+  font-weight: 800;
+  font-size: 3em;
+  line-height: 1;
+}
+
+.wp-block-geo-blocks-stats-geo .geo-stats-unit {
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.wp-block-geo-blocks-stats-geo .geo-stats-label {
+  margin: 0.5em 0 0;
+  min-height: 1.5em;
+}
+
+.wp-block-geo-blocks-stats-geo .geo-stats-source {
+  margin-top: 0.75em;
+  font-size: 0.8em;
+  color: #6b7280;
+}
+
+/* Styles */
+.wp-block-geo-blocks-stats-geo.geo-stats-style-default {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+}
+.wp-block-geo-blocks-stats-geo.geo-stats-style-default .geo-stats-value {
+  color: #1d4ed8;
+}
+
+.wp-block-geo-blocks-stats-geo.geo-stats-style-accent {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+}
+.wp-block-geo-blocks-stats-geo.geo-stats-style-accent .geo-stats-value {
+  color: #7c3aed;
+}
+
+.wp-block-geo-blocks-stats-geo.geo-stats-style-success {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+}
+.wp-block-geo-blocks-stats-geo.geo-stats-style-success .geo-stats-value {
+  color: #059669;
+}
+
+.wp-block-geo-blocks-stats-geo.geo-stats-style-warning {
+  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+}
+.wp-block-geo-blocks-stats-geo.geo-stats-style-warning .geo-stats-value {
+  color: #dc2626;
+}
+
+.wp-block-geo-blocks-stats-geo.geo-stats-style-minimal {
+  background: #f9fafb;
+}
+.wp-block-geo-blocks-stats-geo.geo-stats-style-minimal .geo-stats-value {
+  color: #111827;
+}
+
+/* Sizes */
+.wp-block-geo-blocks-stats-geo.geo-stats-size-small .geo-stats-value { font-size: 2em; }
+.wp-block-geo-blocks-stats-geo.geo-stats-size-small .geo-stats-unit { font-size: 1em; }
+
+.wp-block-geo-blocks-stats-geo.geo-stats-size-large .geo-stats-value { font-size: 4em; }
+.wp-block-geo-blocks-stats-geo.geo-stats-size-large .geo-stats-unit { font-size: 2em; }

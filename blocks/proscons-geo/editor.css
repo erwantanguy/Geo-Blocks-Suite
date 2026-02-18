@@ -1,0 +1,78 @@
+.wp-block-geo-blocks-proscons-geo.geo-proscons {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-title {
+  text-align: center;
+  margin: 0;
+  padding: 0.75em;
+  background: #f8fafc;
+}
+
+.wp-block-geo-blocks-proscons-geo.geo-proscons-layout-side-by-side .geo-proscons-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: #e2e8f0;
+}
+
+.wp-block-geo-blocks-proscons-geo.geo-proscons-layout-stacked .geo-proscons-columns {
+  display: block;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-column {
+  padding: 1em;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-pros {
+  background: #ecfdf5;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-cons {
+  background: #fef2f2;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.75em;
+  font-weight: 600;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em;
+  background: rgba(255,255,255,0.5);
+  border-radius: 4px;
+  margin-bottom: 0.5em;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-item span {
+  flex: 1;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-remove {
+  opacity: 0.5;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-remove:hover {
+  opacity: 1;
+  color: #dc2626;
+}
+
+.wp-block-geo-blocks-proscons-geo .geo-proscons-add {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5em;
+}

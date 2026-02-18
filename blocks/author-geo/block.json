@@ -1,0 +1,53 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/author-geo",
+  "title": "Author Box GEO",
+  "category": "text",
+  "icon": "admin-users",
+  "description": "Encart auteur avec Schema.org Person pour E-E-A-T, SEO et GEO.",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "jobTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "bio": {
+      "type": "string",
+      "default": ""
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "website": {
+      "type": "string",
+      "default": ""
+    },
+    "linkedin": {
+      "type": "string",
+      "default": ""
+    },
+    "twitter": {
+      "type": "string",
+      "default": ""
+    },
+    "email": {
+      "type": "string",
+      "default": ""
+    },
+    "style": {
+      "type": "string",
+      "default": "default"
+    }
+  }
+}

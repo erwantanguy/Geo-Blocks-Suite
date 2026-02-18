@@ -1,0 +1,107 @@
+.wp-block-geo-blocks-definition-geo .geo-definition-box {
+  margin: 1.5em 0;
+  padding: 1.25em 1.5em;
+  border-radius: 8px;
+}
+
+.wp-block-geo-blocks-definition-geo .geo-definition-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.75em;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.wp-block-geo-blocks-definition-geo .geo-definition-icon {
+  font-size: 1.2em;
+}
+
+.wp-block-geo-blocks-definition-geo .geo-definition-term {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin: 0 0 0.5em;
+}
+
+.wp-block-geo-blocks-definition-geo .geo-definition-text {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 1.05em;
+}
+
+.wp-block-geo-blocks-definition-geo .geo-definition-source {
+  margin-top: 1em;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+.wp-block-geo-blocks-definition-geo .geo-definition-source a {
+  text-decoration: underline;
+}
+
+/* Style Default (Dictionnaire bleu) */
+.wp-block-geo-blocks-definition-geo.geo-definition-style-default .geo-definition-box {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-left: 4px solid #3b82f6;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-default .geo-definition-label {
+  color: #1d4ed8;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-default .geo-definition-term {
+  color: #1e3a8a;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-default .geo-definition-text {
+  color: #1e40af;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-default .geo-definition-source {
+  color: #3b82f6;
+}
+
+/* Style Card (Blanc) */
+.wp-block-geo-blocks-definition-geo.geo-definition-style-card .geo-definition-box {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-card .geo-definition-label {
+  color: #6b7280;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-card .geo-definition-term {
+  color: #111827;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-card .geo-definition-text {
+  color: #374151;
+}
+
+/* Style Highlight (Jaune) */
+.wp-block-geo-blocks-definition-geo.geo-definition-style-highlight .geo-definition-box {
+  background: linear-gradient(135deg, #fefce8 0%, #fef08a 100%);
+  border-left: 4px solid #eab308;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-highlight .geo-definition-label {
+  color: #a16207;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-highlight .geo-definition-term {
+  color: #713f12;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-highlight .geo-definition-text {
+  color: #854d0e;
+}
+
+/* Style Minimal (Gris) */
+.wp-block-geo-blocks-definition-geo.geo-definition-style-minimal .geo-definition-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid #9ca3af;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-minimal .geo-definition-label {
+  color: #6b7280;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-minimal .geo-definition-term {
+  color: #374151;
+}
+.wp-block-geo-blocks-definition-geo.geo-definition-style-minimal .geo-definition-text {
+  color: #4b5563;
+}

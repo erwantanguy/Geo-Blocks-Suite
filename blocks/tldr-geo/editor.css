@@ -1,0 +1,88 @@
+.wp-block-geo-blocks-tldr-geo.geo-tldr {
+  border-radius: 8px;
+  padding: 1.25em 1.5em;
+  margin: 1em 0;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-icon {
+  font-size: 1.25em;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-title {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-content {
+  margin: 0;
+  min-height: 2em;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-footer {
+  margin-top: 0.75em;
+  font-size: 0.8em;
+  text-align: right;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-char-ok {
+  color: #28a745;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-char-warning {
+  color: #dc3545;
+}
+
+.wp-block-geo-blocks-tldr-geo .geo-tldr-warning {
+  font-weight: bold;
+}
+
+/* Styles */
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-default {
+  background: linear-gradient(135deg, #e8f4fd 0%, #d6ebf9 100%);
+  border-left: 4px solid #007cba;
+}
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-default .geo-tldr-title {
+  color: #005a8c;
+}
+
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-success {
+  background: linear-gradient(135deg, #e8f8ed 0%, #d4f0dc 100%);
+  border-left: 4px solid #28a745;
+}
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-success .geo-tldr-title {
+  color: #1e7e34;
+}
+
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-warning {
+  background: linear-gradient(135deg, #fff8e6 0%, #fff0cc 100%);
+  border-left: 4px solid #ffc107;
+}
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-warning .geo-tldr-title {
+  color: #b38600;
+}
+
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-info {
+  background: linear-gradient(135deg, #f3e8ff 0%, #e8d4ff 100%);
+  border-left: 4px solid #9b59b6;
+}
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-info .geo-tldr-title {
+  color: #7b2d96;
+}
+
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-minimal {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-left: 4px solid #6c757d;
+}
+.wp-block-geo-blocks-tldr-geo.geo-tldr-style-minimal .geo-tldr-title {
+  color: #495057;
+}

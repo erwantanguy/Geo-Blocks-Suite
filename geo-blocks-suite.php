@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: GEO Blocks Suite
- * Description: Blocs Gutenberg optimisés GEO - BlockquoteGEO, FAQGEO, ImageGEO, VideoGEO, AudioGEO avec JSON-LD Schema.org.
- * Version: 1.0.1
- * Author: Erwan Tanguy - Ticoët
+ * Description: Blocs Gutenberg optimises GEO avec JSON-LD Schema.org - TL;DR, How-To, Definition, Pros/Cons, Author Box, Stats, FAQ, Blockquote, Image, Video, Audio.
+ * Version: 1.2.0
+ * Author: Erwan Tanguy - Ticoet
  * Author URI: https://www.ticoet.fr/
  * Text Domain: geo-blocks-suite
  * License: GPL2+
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 
 define('GEO_BLOCKS_PATH', plugin_dir_path(__FILE__));
 define('GEO_BLOCKS_URL', plugin_dir_url(__FILE__));
-define('GEO_BLOCKS_VERSION', '1.0.1');
+define('GEO_BLOCKS_VERSION', '1.2.0');
 
 function geo_blocks_register_editor_assets() {
     $blocks = [
@@ -24,6 +24,12 @@ function geo_blocks_register_editor_assets() {
         'image-geo',
         'video-geo',
         'audio-geo',
+        'tldr-geo',
+        'howto-geo',
+        'definition-geo',
+        'proscons-geo',
+        'author-geo',
+        'stats-geo',
     ];
 
     foreach ($blocks as $block) {
@@ -69,6 +75,12 @@ function geo_blocks_register_all() {
         'image-geo',
         'video-geo',
         'audio-geo',
+        'tldr-geo',
+        'howto-geo',
+        'definition-geo',
+        'proscons-geo',
+        'author-geo',
+        'stats-geo',
     ];
 
     foreach ($blocks as $block) {
