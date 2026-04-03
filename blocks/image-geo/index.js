@@ -37,7 +37,10 @@
       description: { type: 'string', default: '' },
       creator: { type: 'string', default: '' },
       licenseType: { type: 'string', default: 'cc-by-sa' },
-      licenseCustom: { type: 'string', default: '' }
+      licenseCustom: { type: 'string', default: '' },
+      creditText: { type: 'string', default: '' },
+      copyrightNotice: { type: 'string', default: '' },
+      acquireLicensePage: { type: 'string', default: '' }
     },
 
     edit: function( props ) {
@@ -109,6 +112,25 @@
                 label: 'URL licence personnalisee',
                 value: attrs.licenseCustom,
                 onChange: function(v){ set({ licenseCustom: v }); },
+                placeholder: 'https://...'
+              }),
+              createElement( TextControl, { 
+                label: 'Credit texte (creditText)', 
+                value: attrs.creditText, 
+                onChange: function(v){ set({ creditText: v }); },
+                help: 'Ex: Photo par Erwan Tanguy'
+              }),
+              createElement( TextControl, { 
+                label: 'Notice copyright (copyrightNotice)', 
+                value: attrs.copyrightNotice, 
+                onChange: function(v){ set({ copyrightNotice: v }); },
+                help: 'Ex: © 2026 Ticoet. Tous droits reserves.'
+              }),
+              createElement( TextControl, { 
+                label: 'Page acquisition licence (acquireLicensePage)', 
+                value: attrs.acquireLicensePage, 
+                onChange: function(v){ set({ acquireLicensePage: v }); },
+                help: 'URL pour acquerir une licence (optionnel)',
                 placeholder: 'https://...'
               })
             )

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GEO Blocks Suite
  * Description: Blocs Gutenberg optimises GEO avec JSON-LD Schema.org - TL;DR, How-To, Definition, Pros/Cons, Author Box, Stats, FAQ, Blockquote, Image, Video, Audio.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: Erwan Tanguy - Ticoet
  * Author URI: https://www.ticoet.fr/
  * Text Domain: geo-blocks-suite
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 
 define('GEO_BLOCKS_PATH', plugin_dir_path(__FILE__));
 define('GEO_BLOCKS_URL', plugin_dir_url(__FILE__));
-define('GEO_BLOCKS_VERSION', '1.2.0');
+define('GEO_BLOCKS_VERSION', '1.3.0');
 
 function geo_blocks_register_editor_assets() {
     $blocks = [
@@ -274,22 +274,30 @@ function geo_blocks_render_image($attrs, $content) {
         return '';
     }
 
-    $alt         = $attrs['alt'] ?? '';
-    $description = $attrs['description'] ?? '';
-    $caption     = $attrs['caption'] ?? '';
-    $creator     = $attrs['creator'] ?? '';
-    $url         = $attrs['url'];
-    $fullUrl     = $attrs['fullUrl'] ?? $url;
+    $alt              = $attrs['alt'] ?? '';
+    $description      = $attrs['description'] ?? '';
+    $caption          = $attrs['caption'] ?? '';
+    $creator          = $attrs['creator'] ?? '';
+    $url              = $attrs['url'];
+    $fullUrl          = $attrs['fullUrl'] ?? $url;
+    $creditText       = $attrs['creditText'] ?? '';
+    $copyrightNotice  = $attrs['copyrightNotice'] ?? '';
+    $acquireLicensePage = $attrs['acquireLicensePage'] ?? '';
 
     $licenseType   = $attrs['licenseType'] ?? 'cc-by-sa';
     $licenseCustom = $attrs['licenseCustom'] ?? '';
     $license       = geo_blocks_resolve_license($licenseType, $licenseCustom);
 
     $credits_html = '';
-    if ($creator || $license) {
+    if ($creator || $license || $creditText || $copyrightNotice) {
         $credits_parts = [];
-        if ($creator) {
+        if ($creditText) {
+            $credits_parts[] = '<span class="geo-credit-text">' . esc_html($creditText) . '</span>';
+        } elseif ($creator) {
             $credits_parts[] = '<span class="geo-creator">Auteur : ' . esc_html($creator) . '</span>';
+        }
+        if ($copyrightNotice) {
+            $credits_parts[] = '<span class="geo-copyright">' . esc_html($copyrightNotice) . '</span>';
         }
         if ($license) {
             $credits_parts[] = '<a href="' . esc_url($license) . '" class="geo-license" target="_blank" rel="noopener">Licence</a>';
@@ -320,6 +328,18 @@ function geo_blocks_render_image($attrs, $content) {
             "@type" => "Person",
             "name"  => esc_html($creator)
         ];
+    }
+
+    if ($creditText) {
+        $json["creditText"] = esc_html($creditText);
+    }
+
+    if ($copyrightNotice) {
+        $json["copyrightNotice"] = esc_html($copyrightNotice);
+    }
+
+    if ($acquireLicensePage) {
+        $json["acquireLicensePage"] = esc_url($acquireLicensePage);
     }
 
     return $html . '<script type="application/ld+json">' . wp_json_encode($json, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>';

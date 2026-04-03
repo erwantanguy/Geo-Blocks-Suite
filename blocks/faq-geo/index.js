@@ -14,13 +14,15 @@
     icon: 'editor-help',
     category: 'text',
     attributes: {
-      questions: { type: 'array', default: [] }
+      questions: { type: 'array', default: [] },
+      faqName: { type: 'string', default: '' }
     },
 
     edit: function(props) {
       var attributes = props.attributes;
       var setAttributes = props.setAttributes;
       var questions = attributes.questions || [];
+      var faqName = attributes.faqName || '';
       var blockProps = useBlockProps();
 
       function updateQuestion(index, field, value) {
@@ -45,6 +47,16 @@
       return createElement(Fragment, null,
         createElement('div', blockProps,
           createElement('div', { className: 'faq-geo-editor' },
+            createElement('div', { style: { marginBottom: '15px', padding: '10px', background: '#f9f9f9', borderRadius: '4px' } },
+              createElement('label', { style: { fontWeight: 'bold', display: 'block', marginBottom: '5px' } }, __('Titre de la FAQ (optionnel)', 'geo-blocks-suite')),
+              createElement('input', {
+                type: 'text',
+                value: faqName,
+                onChange: function(e) { setAttributes({ faqName: e.target.value }); },
+                placeholder: __('Ex: Questions frequentes sur nos services', 'geo-blocks-suite'),
+                style: { width: '100%', padding: '8px' }
+              })
+            ),
             createElement('div', { style: { marginBottom: '10px' } },
               createElement(Button, { isPrimary: true, onClick: addQuestion }, __('Ajouter une question', 'geo-blocks-suite'))
             ),
@@ -76,6 +88,7 @@
     save: function(props) {
       var attributes = props.attributes;
       var questions = attributes.questions || [];
+      var faqName = attributes.faqName || '';
       var blockProps = useBlockProps.save();
 
       var mainEntity = questions.map(function(q){
@@ -91,11 +104,21 @@
 
       var schema = {
         "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": mainEntity
+        "@type": "FAQPage"
       };
 
+      if (faqName && faqName.trim()) {
+        schema.name = faqName.trim();
+      }
+
+      schema.mainEntity = mainEntity;
+
       var children = [];
+      
+      if (faqName && faqName.trim()) {
+        children.push(createElement('h2', { className: 'faq-geo-title', key: 'title' }, faqName));
+      }
+      
       questions.forEach(function(q, idx){
         var qText = q.question || '';
         var aText = q.answer || '';

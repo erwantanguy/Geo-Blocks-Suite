@@ -26,8 +26,12 @@
       pros: { type: 'array', default: [] },
       cons: { type: 'array', default: [] },
       prosLabel: { type: 'string', default: 'Avantages' },
-      consLabel: { type: 'string', default: 'Inconvenients' },
-      layout: { type: 'string', default: 'side-by-side' }
+      consLabel: { type: 'string', default: 'Inconvénients' },
+      layout: { type: 'string', default: 'side-by-side' },
+      itemReviewedName: { type: 'string', default: '' },
+      itemReviewedType: { type: 'string', default: 'Product' },
+      itemReviewedId: { type: 'string', default: '' },
+      authorName: { type: 'string', default: '' }
     },
 
     edit: function(props) {
@@ -78,9 +82,46 @@
               onChange: function(val) { setAttributes({ prosLabel: val }); }
             }),
             createElement(TextControl, {
-              label: __('Label Inconvenients', 'geo-blocks-suite'),
+              label: __('Label Inconvénients', 'geo-blocks-suite'),
               value: attributes.consLabel,
               onChange: function(val) { setAttributes({ consLabel: val }); }
+            })
+          ),
+          createElement(PanelBody, { title: __('Schema.org (obligatoire)', 'geo-blocks-suite'), initialOpen: true },
+            createElement(TextControl, {
+              label: __('Référence @id (optionnel)', 'geo-blocks-suite'),
+              value: attributes.itemReviewedId,
+              onChange: function(val) { setAttributes({ itemReviewedId: val }); },
+              help: __('URL avec #id d\'une entité existante (ex: https://site.com/page#software). Si rempli, le type et nom ci-dessous sont ignorés.', 'geo-blocks-suite')
+            }),
+            createElement(TextControl, {
+              label: __('Nom du produit/service évalué', 'geo-blocks-suite'),
+              value: attributes.itemReviewedName,
+              onChange: function(val) { setAttributes({ itemReviewedName: val }); },
+              help: __('Requis si pas de référence @id', 'geo-blocks-suite')
+            }),
+            createElement(SelectControl, {
+              label: __('Type d\'élément évalué', 'geo-blocks-suite'),
+              value: attributes.itemReviewedType,
+              options: [
+                { value: 'Product', label: 'Produit' },
+                { value: 'SoftwareApplication', label: 'Application/Logiciel' },
+                { value: 'Service', label: 'Service' },
+                { value: 'Organization', label: 'Organisation' },
+                { value: 'LocalBusiness', label: 'Commerce local' },
+                { value: 'Book', label: 'Livre' },
+                { value: 'Course', label: 'Formation' },
+                { value: 'Event', label: 'Événement' },
+                { value: 'Movie', label: 'Film' },
+                { value: 'CreativeWork', label: 'Oeuvre' }
+              ],
+              onChange: function(val) { setAttributes({ itemReviewedType: val }); }
+            }),
+            createElement(TextControl, {
+              label: __('Nom de l\'auteur de l\'avis', 'geo-blocks-suite'),
+              value: attributes.authorName,
+              onChange: function(val) { setAttributes({ authorName: val }); },
+              help: __('Requis par Google pour le type Review', 'geo-blocks-suite')
             })
           )
         ),
@@ -165,27 +206,47 @@
       var schema = {
         "@context": "https://schema.org",
         "@type": "Review",
-        "name": attributes.title ? attributes.title.replace(/<[^>]+>/g, '') : 'Avantages et Inconvenients',
-        "positiveNotes": {
-          "@type": "ItemList",
-          "itemListElement": pros.map(function(item, index) {
-            return {
-              "@type": "ListItem",
-              "position": index + 1,
-              "name": item ? item.replace(/<[^>]+>/g, '') : ''
-            };
-          })
-        },
-        "negativeNotes": {
-          "@type": "ItemList",
-          "itemListElement": cons.map(function(item, index) {
-            return {
-              "@type": "ListItem",
-              "position": index + 1,
-              "name": item ? item.replace(/<[^>]+>/g, '') : ''
-            };
-          })
-        }
+        "name": attributes.title ? attributes.title.replace(/<[^>]+>/g, '') : 'Avantages et Inconvénients'
+      };
+
+      if (attributes.itemReviewedId) {
+        schema.itemReviewed = {
+          "@id": attributes.itemReviewedId
+        };
+      } else if (attributes.itemReviewedName) {
+        schema.itemReviewed = {
+          "@type": attributes.itemReviewedType || 'Product',
+          "name": attributes.itemReviewedName
+        };
+      }
+
+      if (attributes.authorName) {
+        schema.author = {
+          "@type": "Person",
+          "name": attributes.authorName
+        };
+      }
+
+      schema.positiveNotes = {
+        "@type": "ItemList",
+        "itemListElement": pros.map(function(item, index) {
+          return {
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": item ? item.replace(/<[^>]+>/g, '') : ''
+          };
+        })
+      };
+
+      schema.negativeNotes = {
+        "@type": "ItemList",
+        "itemListElement": cons.map(function(item, index) {
+          return {
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": item ? item.replace(/<[^>]+>/g, '') : ''
+          };
+        })
       };
 
       return createElement('div', blockProps,
