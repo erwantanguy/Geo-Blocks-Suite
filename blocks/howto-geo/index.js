@@ -20,6 +20,21 @@
     { value: 'difficile', label: 'Difficile' }
   ];
 
+  // Fonction pour convertir ISO 8601 en format lisible
+  function formatDuration(iso) {
+    if (!iso) return '';
+    var match = iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/i);
+    if (!match) return iso; // Retourne tel quel si pas au format ISO
+    var hours = parseInt(match[1] || 0);
+    var minutes = parseInt(match[2] || 0);
+    var seconds = parseInt(match[3] || 0);
+    var parts = [];
+    if (hours > 0) parts.push(hours + ' h');
+    if (minutes > 0) parts.push(minutes + ' min');
+    if (seconds > 0) parts.push(seconds + ' s');
+    return parts.length > 0 ? parts.join(' ') : iso;
+  }
+
   registerBlockType('geo-blocks/howto-geo', {
     title: 'How-To GEO',
     icon: 'list-view',
@@ -109,7 +124,7 @@
               placeholder: __('Description du tutoriel...', 'geo-blocks-suite')
             }),
             (attributes.totalTime || attributes.difficulty) && createElement('div', { className: 'geo-howto-meta' },
-              attributes.totalTime && createElement('span', { className: 'geo-howto-time' }, '⏱ ', attributes.totalTime),
+              attributes.totalTime && createElement('span', { className: 'geo-howto-time' }, '⏱ ', formatDuration(attributes.totalTime)),
               createElement('span', { className: 'geo-howto-difficulty geo-howto-difficulty-' + attributes.difficulty },
                 attributes.difficulty === 'facile' ? '🟢' : attributes.difficulty === 'moyen' ? '🟡' : '🔴',
                 ' ', attributes.difficulty.charAt(0).toUpperCase() + attributes.difficulty.slice(1)
@@ -172,21 +187,6 @@
       var attributes = props.attributes;
       var steps = attributes.steps || [];
       var blockProps = useBlockProps.save({ className: 'geo-howto' });
-
-      // Fonction pour convertir ISO 8601 en format lisible
-      function formatDuration(iso) {
-        if (!iso) return '';
-        var match = iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/i);
-        if (!match) return iso; // Retourne tel quel si pas au format ISO
-        var hours = parseInt(match[1] || 0);
-        var minutes = parseInt(match[2] || 0);
-        var seconds = parseInt(match[3] || 0);
-        var parts = [];
-        if (hours > 0) parts.push(hours + ' h');
-        if (minutes > 0) parts.push(minutes + ' min');
-        if (seconds > 0) parts.push(seconds + ' s');
-        return parts.length > 0 ? parts.join(' ') : iso;
-      }
 
       var displayTime = formatDuration(attributes.totalTime);
 
