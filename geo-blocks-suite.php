@@ -113,7 +113,7 @@ add_action('init', 'geo_blocks_register_all', 20);
 
 /**
  * Rendu du bloc VideoGEO
- * V1.0.1 - Support fichier local ET URLs externes (YouTube, Vimeo, Dailymotion)
+ * V1.0.2 - Support fichier local ET URLs externes (YouTube, Vimeo, Dailymotion) + Transcription
  */
 function geo_blocks_render_video($attrs, $content) {
 
@@ -131,6 +131,8 @@ function geo_blocks_render_video($attrs, $content) {
     $creator       = $attrs['creator'] ?? '';
     $duration      = $attrs['duration'] ?? '';
     $poster_url    = $attrs['posterUrl'] ?? '';
+    $transcript    = $attrs['transcript'] ?? '';
+    $show_transcript = $attrs['showTranscript'] ?? false;
     
     $license_type   = $attrs['licenseType'] ?? 'cc-by-sa';
     $license_custom = $attrs['licenseCustom'] ?? '';
@@ -194,6 +196,16 @@ function geo_blocks_render_video($attrs, $content) {
         $credits_html = '<div class="geo-credits">' . implode(' | ', $credits_parts) . '</div>';
     }
 
+    // Générer la transcription HTML si activée
+    $transcript_html = '';
+    if ($show_transcript && !empty($transcript)) {
+        $transcript_html = '
+        <details class="geo-video-transcript">
+            <summary>Transcription de la vidéo</summary>
+            <div class="geo-video-transcript-content">' . wpautop(esc_html($transcript)) . '</div>
+        </details>';
+    }
+
     // Générer le JSON-LD
     $json = [
         "@context"    => "https://schema.org",
@@ -216,6 +228,9 @@ function geo_blocks_render_video($attrs, $content) {
             "name"  => esc_html($creator)
         ];
     }
+    if (!empty($transcript)) {
+        $json["transcript"] = esc_html($transcript);
+    }
 
     $json_ld = '<script type="application/ld+json">' . wp_json_encode($json, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . '</script>';
 
@@ -225,6 +240,7 @@ function geo_blocks_render_video($attrs, $content) {
             ' . $html_video . '
             ' . ($title ? '<figcaption>' . esc_html($title) . '</figcaption>' : '') . '
             ' . $credits_html . '
+            ' . $transcript_html . '
         </figure>
         ' . $json_ld;
 }

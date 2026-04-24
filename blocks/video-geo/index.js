@@ -36,7 +36,9 @@
       duration: { type: 'string', default: '' },
       creator: { type: 'string', default: '' },
       licenseType: { type: 'string', default: 'cc-by-sa' },
-      licenseCustom: { type: 'string', default: '' }
+      licenseCustom: { type: 'string', default: '' },
+      transcript: { type: 'string', default: '' },
+      showTranscript: { type: 'boolean', default: false }
     },
 
     edit: function( props ) {
@@ -122,6 +124,21 @@
               value: attrs.licenseCustom,
               onChange: function(v){ set({ licenseCustom: v }); },
               placeholder: 'https://...'
+            })
+          ),
+          createElement( PanelBody, { title: 'Transcription (GEO)', initialOpen: false },
+            createElement( TextareaControl, {
+              label: 'Transcription de la vidéo',
+              value: attrs.transcript,
+              onChange: function(v){ set({ transcript: v }); },
+              rows: 8,
+              help: 'Texte intégral de la vidéo. Essentiel pour le GEO et l\'accessibilité.'
+            }),
+            createElement( wp.components.ToggleControl, {
+              label: 'Afficher la transcription sur la page',
+              checked: attrs.showTranscript,
+              onChange: function(v){ set({ showTranscript: v }); },
+              help: 'Si activé, la transcription sera visible sous la vidéo dans un accordéon.'
             })
           )
         ),

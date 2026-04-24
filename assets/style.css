@@ -74,6 +74,42 @@
   aspect-ratio: 16/9;
 }
 
+/* Video Transcript */
+.geo-video-transcript {
+  margin-top: 1rem;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  text-align: left;
+}
+.geo-video-transcript summary {
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #495057;
+  user-select: none;
+}
+.geo-video-transcript summary:hover {
+  background: #e9ecef;
+}
+.geo-video-transcript[open] summary {
+  border-bottom: 1px solid #e9ecef;
+}
+.geo-video-transcript-content {
+  padding: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.geo-video-transcript-content p {
+  margin: 0 0 0.75rem;
+}
+.geo-video-transcript-content p:last-child {
+  margin-bottom: 0;
+}
+
 /* Lightbox */
 .geo-modal {
   position: fixed;
