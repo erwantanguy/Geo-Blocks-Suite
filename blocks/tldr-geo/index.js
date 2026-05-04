@@ -39,7 +39,8 @@
       content: { type: 'string', default: '' },
       title: { type: 'string', default: 'En bref' },
       style: { type: 'string', default: 'default' },
-      showIcon: { type: 'boolean', default: true }
+      showIcon: { type: 'boolean', default: true },
+      hideVisually: { type: 'boolean', default: false }
     },
 
     edit: function(props) {
@@ -49,7 +50,8 @@
       var title = attributes.title;
       var style = attributes.style;
       var showIcon = attributes.showIcon;
-      var blockProps = useBlockProps({ className: 'geo-tldr geo-tldr-style-' + style });
+      var hideVisually = attributes.hideVisually;
+      var blockProps = useBlockProps({ className: 'geo-tldr geo-tldr-style-' + style + (hideVisually ? ' geo-tldr-hidden-preview' : '') });
 
       var isCustomTitle = !TITLES.some(function(t) { return t.value === title && t.value !== 'custom'; });
       var selectValue = isCustomTitle ? 'custom' : title;
@@ -94,6 +96,14 @@
               label: __('Afficher l\'icone', 'geo-blocks-suite'),
               checked: showIcon,
               onChange: function(val) { setAttributes({ showIcon: val }); }
+            }),
+            createElement(ToggleControl, {
+              label: __('Masquer visuellement (JSON-LD uniquement)', 'geo-blocks-suite'),
+              checked: hideVisually,
+              onChange: function(val) { setAttributes({ hideVisually: val }); },
+              help: hideVisually 
+                ? __('Le TL;DR sera invisible pour les visiteurs mais le JSON-LD reste present pour les robots SEO/GEO.', 'geo-blocks-suite')
+                : __('Le TL;DR est visible pour tous.', 'geo-blocks-suite')
             })
           ),
           createElement(
@@ -107,6 +117,12 @@
               createElement('li', null, __('Evite le jargon technique', 'geo-blocks-suite'))
             )
           )
+        ),
+        hideVisually && createElement(
+          'div',
+          { className: 'geo-tldr-hidden-notice' },
+          createElement('span', null, '👁️‍🗨️ '),
+          createElement('em', null, __('Ce bloc est masque pour les visiteurs (JSON-LD actif)', 'geo-blocks-suite'))
         ),
         createElement(
           'div',
@@ -140,9 +156,30 @@
       var title = attributes.title || 'En bref';
       var style = attributes.style;
       var showIcon = attributes.showIcon;
-      var blockProps = useBlockProps.save({ className: 'geo-tldr geo-tldr-style-' + style });
-
+      var hideVisually = attributes.hideVisually;
+      
       var plainText = content ? content.replace(/<[^>]+>/g, '') : '';
+
+      var jsonLd = createElement('script', { type: 'application/ld+json' }, JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPageElement",
+        "name": title,
+        "text": plainText,
+        "cssSelector": ".geo-tldr-box"
+      }, null, 2));
+
+      // Si masque visuellement, on genere uniquement le JSON-LD
+      if (hideVisually) {
+        return createElement(
+          'div',
+          { className: 'geo-tldr-hidden', 'aria-hidden': 'true' },
+          createElement('meta', { itemProp: 'abstract', content: plainText }),
+          jsonLd
+        );
+      }
+
+      // Sinon, affichage normal
+      var blockProps = useBlockProps.save({ className: 'geo-tldr geo-tldr-style-' + style });
 
       return createElement(
         'div',
@@ -159,13 +196,7 @@
           createElement(RichText.Content, { tagName: 'p', className: 'geo-tldr-content', value: content })
         ),
         createElement('meta', { itemProp: 'abstract', content: plainText }),
-        createElement('script', { type: 'application/ld+json' }, JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebPageElement",
-          "name": title,
-          "text": plainText,
-          "cssSelector": ".geo-tldr-box"
-        }, null, 2))
+        jsonLd
       );
     }
   });
