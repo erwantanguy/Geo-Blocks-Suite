@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GEO Blocks Suite
  * Description: Blocs Gutenberg optimises GEO avec JSON-LD Schema.org - TL;DR, How-To, Definition, Pros/Cons, Author Box, Stats, FAQ, Blockquote, Image, Video, Audio.
- * Version: 1.3.0
+ * Version: 1.3.1
  * Author: Erwan Tanguy - Ticoet
  * Author URI: https://www.ticoet.fr/
  * Text Domain: geo-blocks-suite
@@ -15,7 +15,17 @@ if (!defined('ABSPATH')) {
 
 define('GEO_BLOCKS_PATH', plugin_dir_path(__FILE__));
 define('GEO_BLOCKS_URL', plugin_dir_url(__FILE__));
-define('GEO_BLOCKS_VERSION', '1.3.0');
+define('GEO_BLOCKS_VERSION', '1.3.1');
+
+require_once GEO_BLOCKS_PATH . 'vendor/plugin-update-checker/plugin-update-checker.php';
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$geoBlocksUpdateChecker = PucFactory::buildUpdateChecker(
+    'https://dl.ticoet.me/downloads/pluginsWP/geo-blocks-suite/details.json',
+    __FILE__,
+    'geo-blocks-suite'
+);
 
 function geo_blocks_register_editor_assets() {
     $blocks = [
@@ -129,6 +139,7 @@ function geo_blocks_render_video($attrs, $content) {
     $title         = $attrs['title'] ?? '';
     $description   = $attrs['description'] ?? '';
     $creator       = $attrs['creator'] ?? '';
+    $upload_date   = $attrs['uploadDate'] ?? '';
     $duration      = $attrs['duration'] ?? '';
     $poster_url    = $attrs['posterUrl'] ?? '';
     $transcript    = $attrs['transcript'] ?? '';
@@ -180,7 +191,7 @@ function geo_blocks_render_video($attrs, $content) {
     } else {
         // Fichier local → balise video
         $poster_attr = $poster_url ? ' poster="' . esc_url($poster_url) . '"' : '';
-        $html_video = '<video src="' . esc_url($final_url) . '"' . $poster_attr . ' controls style="width: 100%; height: auto;"></video>';
+        $html_video = '<video src="' . esc_url($final_url) . '#t=0.001"' . $poster_attr . ' controls playsinline preload="metadata" style="width: 100%; height: auto;"></video>';
     }
 
     // Générer les crédits
@@ -218,6 +229,9 @@ function geo_blocks_render_video($attrs, $content) {
 
     if ($poster_url) {
         $json["thumbnailUrl"] = esc_url($poster_url);
+    }
+    if ($upload_date) {
+        $json["uploadDate"] = geo_blocks_format_upload_date($upload_date);
     }
     if ($duration) {
         $json["duration"] = $duration;
@@ -299,6 +313,8 @@ function geo_blocks_render_image($attrs, $content) {
     $creditText       = $attrs['creditText'] ?? '';
     $copyrightNotice  = $attrs['copyrightNotice'] ?? '';
     $acquireLicensePage = $attrs['acquireLicensePage'] ?? '';
+    $width            = !empty($attrs['width']) ? intval($attrs['width']) : 0;
+    $height           = !empty($attrs['height']) ? intval($attrs['height']) : 0;
 
     $licenseType   = $attrs['licenseType'] ?? 'cc-by-sa';
     $licenseCustom = $attrs['licenseCustom'] ?? '';
@@ -321,9 +337,17 @@ function geo_blocks_render_image($attrs, $content) {
         $credits_html = '<div class="geo-credits">' . implode(' | ', $credits_parts) . '</div>';
     }
 
+    $img_attrs = '';
+    if ($width > 0) {
+        $img_attrs .= ' width="' . $width . '"';
+    }
+    if ($height > 0) {
+        $img_attrs .= ' height="' . $height . '"';
+    }
+
     $html = '<figure class="geo-media geo-image">
                 <a href="' . esc_url($fullUrl) . '" class="geo-lightbox" data-geo-src="' . esc_url($fullUrl) . '">
-                    <img src="' . esc_url($url) . '" alt="' . esc_attr($description ?: $alt) . '">
+                    <img src="' . esc_url($url) . '" alt="' . esc_attr($description ?: $alt) . '"' . $img_attrs . '>
                 </a>
                 ' . ($caption ? '<figcaption>' . esc_html($caption) . '</figcaption>' : '') . '
                 ' . $credits_html . '
@@ -356,6 +380,13 @@ function geo_blocks_render_image($attrs, $content) {
 
     if ($acquireLicensePage) {
         $json["acquireLicensePage"] = esc_url($acquireLicensePage);
+    }
+
+    if ($width > 0) {
+        $json["width"] = $width;
+    }
+    if ($height > 0) {
+        $json["height"] = $height;
     }
 
     return $html . '<script type="application/ld+json">' . wp_json_encode($json, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>';
@@ -431,6 +462,35 @@ function geo_blocks_resolve_license($type, $custom) {
         default:
             return 'https://creativecommons.org/licenses/by-sa/4.0/';
     }
+}
+
+/**
+ * Formate une date uploadDate pour Schema.org.
+ * Convertit AAAA-MM-JJ en AAAA-MM-JJT00:00:00+HH:00 avec le fuseau horaire du site.
+ *
+ * @param string $date Date au format AAAA-MM-JJ (ou deja complete).
+ * @return string
+ */
+function geo_blocks_format_upload_date($date) {
+    if (empty($date)) {
+        return '';
+    }
+
+    // Si la date est deja au format ISO 8601 complet, la nettoyer/recalculer proprement
+    $date = sanitize_text_field($date);
+    $date_only = preg_replace('/T.*$/', '', $date);
+
+    if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date_only)) {
+        return $date;
+    }
+
+    $datetime = DateTime::createFromFormat('Y-m-d', $date_only, wp_timezone());
+    if (!$datetime) {
+        return $date;
+    }
+
+    $datetime->setTime(0, 0, 0);
+    return $datetime->format('c');
 }
 
 function geo_blocks_enqueue_assets() {

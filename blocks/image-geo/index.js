@@ -32,6 +32,8 @@
       url: { type: 'string', default: '' },
       fullUrl: { type: 'string', default: '' },
       size: { type: 'string', default: 'large' },
+      width: { type: 'number' },
+      height: { type: 'number' },
       alt: { type: 'string', default: '' },
       caption: { type: 'string', default: '' },
       description: { type: 'string', default: '' },
@@ -68,9 +70,12 @@
           createElement( MediaUpload, {
             onSelect: function(media){
               var sizeKey = attrs.size || 'large';
-              var url = (media.sizes && media.sizes[sizeKey] && media.sizes[sizeKey].url) ? media.sizes[sizeKey].url : media.url;
+              var sizeObj = (media.sizes && media.sizes[sizeKey]) ? media.sizes[sizeKey] : null;
+              var url = sizeObj && sizeObj.url ? sizeObj.url : media.url;
               var full = (media.sizes && media.sizes.full && media.sizes.full.url) ? media.sizes.full.url : media.url;
-              set({ imageId: media.id, url: url, fullUrl: full, alt: media.alt || '' });
+              var width = sizeObj && sizeObj.width ? sizeObj.width : (media.width || null);
+              var height = sizeObj && sizeObj.height ? sizeObj.height : (media.height || null);
+              set({ imageId: media.id, url: url, fullUrl: full, alt: media.alt || '', width: width, height: height });
             },
             allowedTypes: ['image'],
             render: function(obj){
@@ -93,7 +98,9 @@
                                 var sizes = media.media_details.sizes || {};
                                 var newUrl = sizes[v] && sizes[v].source_url ? sizes[v].source_url : media.source_url;
                                 var full = sizes.full && sizes.full.source_url ? sizes.full.source_url : media.source_url;
-                                set({ url: newUrl, fullUrl: full });
+                                var newWidth = sizes[v] && sizes[v].width ? sizes[v].width : (media.media_details.width || null);
+                                var newHeight = sizes[v] && sizes[v].height ? sizes[v].height : (media.media_details.height || null);
+                                set({ url: newUrl, fullUrl: full, width: newWidth, height: newHeight });
                             });
                     }
                 }
@@ -139,7 +146,7 @@
           createElement( 'div', { style: { marginTop: '12px' } },
             attrs.url ? createElement('figure', { className: 'geo-media geo-image' },
               createElement('a', { href: attrs.fullUrl || attrs.url, className: 'geo-lightbox', 'data-geo-src': (attrs.fullUrl || attrs.url) },
-                createElement('img', { src: attrs.url, alt: attrs.alt || '' })
+                createElement('img', { src: attrs.url, alt: attrs.alt || '', width: attrs.width || undefined, height: attrs.height || undefined })
               ),
               attrs.caption ? createElement('figcaption', null, attrs.caption) : null
             ) : createElement('p', null, 'Aucune image selectionnee')

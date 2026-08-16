@@ -33,6 +33,7 @@
       // Métadonnées
       title: { type: 'string', default: '' },
       description: { type: 'string', default: '' },
+      uploadDate: { type: 'string', default: '' },
       duration: { type: 'string', default: '' },
       creator: { type: 'string', default: '' },
       licenseType: { type: 'string', default: 'cc-by-sa' },
@@ -102,14 +103,21 @@
               rows: 3
             }),
             createElement( TextControl, { 
-              label: 'Durée (format ISO 8601)', 
+              label: 'Date de mise en ligne (uploadDate)', 
+              value: attrs.uploadDate, 
+              onChange: function(v){ set({ uploadDate: v }); },
+              help: 'Format AAAA-MM-JJ. Le fuseau horaire du site sera ajoute automatiquement.',
+              placeholder: '2023-10-16'
+            }),
+            createElement( TextControl, { 
+              label: 'Duree (format ISO 8601)', 
               value: attrs.duration, 
               onChange: function(v){ set({ duration: v }); },
               help: 'Ex: PT5M (5 minutes), PT1M30S (1min30sec)',
               placeholder: 'PT5M'
             }),
             createElement( TextControl, { 
-              label: 'Auteur / créateur', 
+              label: 'Auteur / createur', 
               value: attrs.creator, 
               onChange: function(v){ set({ creator: v }); } 
             }),
@@ -228,9 +236,11 @@
                   style: { margin: 0 }
                 },
                   createElement('video', { 
-                    src: attrs.url, 
+                    src: attrs.url + (attrs.url.includes('#') ? '' : '#t=0.001'), 
                     controls: true, 
                     poster: attrs.posterUrl || undefined,
+                    playsInline: true,
+                    preload: 'metadata',
                     style: { 
                       maxWidth: '100%', 
                       maxHeight: '400px',
