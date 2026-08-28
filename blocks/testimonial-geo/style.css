@@ -1,0 +1,38 @@
+.geo-testimonial {
+    margin: 1.5em 0;
+}
+
+.geo-testimonial-card {
+    background: #f8f9fa;
+    border-left: 4px solid #0073aa;
+    border-radius: 4px;
+    padding: 1.25em 1.5em;
+}
+
+.geo-testimonial-quote {
+    margin: 0 0 1em;
+    padding: 0;
+    font-style: italic;
+    font-size: 1.05em;
+    line-height: 1.6;
+    border: none;
+}
+
+.geo-testimonial-quote p:last-child {
+    margin-bottom: 0;
+}
+
+.geo-testimonial-author {
+    font-size: 0.95em;
+    color: #555;
+}
+
+.geo-testimonial-name {
+    font-weight: 600;
+    color: #222;
+}
+
+.geo-testimonial-rating {
+    color: #ffb900;
+    margin-left: 0.5em;
+}

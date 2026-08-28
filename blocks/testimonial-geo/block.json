@@ -1,0 +1,50 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/testimonial-geo",
+  "title": "Temoignage GEO",
+  "category": "text",
+  "icon": "format-chat",
+  "description": "Bloc de temoignage client enrichi avec metadonnees Schema.org Review ou Recommendation.",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "quote": {
+      "type": "string",
+      "source": "html",
+      "selector": ".geo-testimonial-quote"
+    },
+    "author": {
+      "type": "string",
+      "default": ""
+    },
+    "role": {
+      "type": "string",
+      "default": ""
+    },
+    "company": {
+      "type": "string",
+      "default": ""
+    },
+    "rating": {
+      "type": "string",
+      "default": ""
+    },
+    "date": {
+      "type": "string",
+      "default": ""
+    },
+    "itemReviewedName": {
+      "type": "string",
+      "default": ""
+    },
+    "itemReviewedType": {
+      "type": "string",
+      "default": "LocalBusiness"
+    },
+    "itemReviewedId": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

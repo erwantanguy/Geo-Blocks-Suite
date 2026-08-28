@@ -1,0 +1,20 @@
+.geo-testimonial {
+    padding: 10px;
+}
+
+.geo-testimonial-card {
+    background: #f8f9fa;
+    border-left: 4px solid #0073aa;
+    border-radius: 4px;
+    padding: 1em;
+}
+
+.geo-testimonial-quote {
+    margin: 0 0 1em;
+    font-style: italic;
+    min-height: 3em;
+}
+
+.geo-testimonial-meta input {
+    margin-bottom: 0.5em;
+}
