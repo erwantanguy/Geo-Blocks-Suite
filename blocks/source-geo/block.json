@@ -1,0 +1,41 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/source-geo",
+  "title": "Source GEO",
+  "category": "text",
+  "icon": "admin-links",
+  "description": "Encart source et reference avec metadonnees Schema.org Citation pour renforcer l EEAT (SEO/GEO).",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "sourceName": {
+      "type": "string",
+      "default": ""
+    },
+    "sourceUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "sourceTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "sourceDate": {
+      "type": "string",
+      "default": ""
+    },
+    "sourcePublisher": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "style": {
+      "type": "string",
+      "default": "default"
+    }
+  }
+}

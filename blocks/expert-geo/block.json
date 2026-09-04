@@ -1,0 +1,37 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/expert-geo",
+  "title": "Avis expert GEO",
+  "category": "text",
+  "icon": "awards",
+  "description": "Avis d expert avec credentials Schema.org Person pour renforcer l EEAT (SEO/AEO/GEO).",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "expertName": {
+      "type": "string",
+      "default": ""
+    },
+    "credentials": {
+      "type": "string",
+      "default": ""
+    },
+    "quote": {
+      "type": "string",
+      "default": ""
+    },
+    "expertUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "expertImage": {
+      "type": "string",
+      "default": ""
+    },
+    "style": {
+      "type": "string",
+      "default": "default"
+    }
+  }
+}

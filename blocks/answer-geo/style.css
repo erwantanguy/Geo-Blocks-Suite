@@ -1,0 +1,73 @@
+/* Reponse directe GEO - Frontend */
+
+.geo-answer {
+    margin: 1.5em 0;
+}
+
+.geo-answer-box {
+    background: #f0f7ff;
+    border-left: 4px solid #2271b1;
+    border-radius: 6px;
+    padding: 16px 20px;
+    position: relative;
+}
+
+.geo-answer-style-success .geo-answer-box {
+    background: #f0fdf4;
+    border-left-color: #16a34a;
+}
+
+.geo-answer-style-warning .geo-answer-box {
+    background: #fffbeb;
+    border-left-color: #d97706;
+}
+
+.geo-answer-style-info .geo-answer-box {
+    background: #faf5ff;
+    border-left-color: #9333ea;
+}
+
+.geo-answer-style-minimal .geo-answer-box {
+    background: #f8f9fa;
+    border-left-color: #6c757d;
+}
+
+.geo-answer-question-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.geo-answer-icon {
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+
+.geo-answer-question {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #1e3a5f;
+}
+
+.geo-answer-style-success .geo-answer-question { color: #14532d; }
+.geo-answer-style-warning .geo-answer-question { color: #78350f; }
+.geo-answer-style-info .geo-answer-question { color: #581c87; }
+.geo-answer-style-minimal .geo-answer-question { color: #343a40; }
+
+.geo-answer-text {
+    margin: 0;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .geo-answer-box {
+        padding: 12px 14px;
+    }
+
+    .geo-answer-question {
+        font-size: 1em;
+    }
+}

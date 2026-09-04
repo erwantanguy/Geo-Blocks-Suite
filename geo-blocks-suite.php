@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: GEO Blocks Suite
- * Description: Blocs Gutenberg optimises GEO avec JSON-LD Schema.org - TL;DR, How-To, Definition, Pros/Cons, Author Box, Stats, FAQ, Blockquote, Image, Video, Audio.
- * Version: 1.3.2
+ * Description: Blocs Gutenberg optimises GEO avec JSON-LD Schema.org - TL;DR, How-To, Definition, Pros/Cons, Author Box, Stats, FAQ, Blockquote, Image, Video, Audio, Reponse directe, Source, Mise a jour, Avis expert.
+ * Version: 1.4.0
  * Author: Erwan Tanguy - Ticoet
  * Author URI: https://www.ticoet.fr/
  * Text Domain: geo-blocks-suite
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 
 define('GEO_BLOCKS_PATH', plugin_dir_path(__FILE__));
 define('GEO_BLOCKS_URL', plugin_dir_url(__FILE__));
-define('GEO_BLOCKS_VERSION', '1.3.2');
+define('GEO_BLOCKS_VERSION', '1.4.0');
 
 require_once GEO_BLOCKS_PATH . 'vendor/plugin-update-checker/plugin-update-checker.php';
 
@@ -41,6 +41,10 @@ function geo_blocks_register_editor_assets() {
         'author-geo',
         'stats-geo',
         'testimonial-geo',
+        'answer-geo',
+        'source-geo',
+        'update-geo',
+        'expert-geo',
     ];
 
     foreach ($blocks as $block) {
@@ -93,6 +97,10 @@ function geo_blocks_register_all() {
         'author-geo',
         'stats-geo',
         'testimonial-geo',
+        'answer-geo',
+        'source-geo',
+        'update-geo',
+        'expert-geo',
     ];
 
     foreach ($blocks as $block) {

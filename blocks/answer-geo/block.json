@@ -1,0 +1,29 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/answer-geo",
+  "title": "Reponse directe GEO",
+  "category": "text",
+  "icon": "editor-ol",
+  "description": "Reponse directe a une question pour les AI Overviews et moteurs generatifs (SEO/AEO/GEO).",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "question": {
+      "type": "string",
+      "default": ""
+    },
+    "answer": {
+      "type": "string",
+      "default": ""
+    },
+    "style": {
+      "type": "string",
+      "default": "default"
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

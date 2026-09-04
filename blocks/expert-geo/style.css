@@ -1,0 +1,101 @@
+/* Avis expert GEO - Frontend */
+
+.geo-expert {
+    margin: 1.5em 0;
+}
+
+.geo-expert-box {
+    background: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-left: 4px solid #9333ea;
+    border-radius: 8px;
+    padding: 18px 20px;
+}
+
+.geo-expert-style-default .geo-expert-box { background: #f0f7ff; border-color: #bfdbfe; border-left-color: #2271b1; }
+.geo-expert-style-success .geo-expert-box { background: #f0fdf4; border-color: #bbf7d0; border-left-color: #16a34a; }
+.geo-expert-style-warning .geo-expert-box { background: #fffbeb; border-color: #fde68a; border-left-color: #d97706; }
+.geo-expert-style-minimal .geo-expert-box { background: #f8f9fa; border-color: #e9ecef; border-left-color: #6c757d; }
+
+.geo-expert-quote-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.geo-expert-quote-mark {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.4em;
+    line-height: 1;
+    color: #9333ea;
+    opacity: 0.5;
+    flex-shrink: 0;
+}
+
+.geo-expert-style-default .geo-expert-quote-mark { color: #2271b1; }
+.geo-expert-style-success .geo-expert-quote-mark { color: #16a34a; }
+.geo-expert-style-warning .geo-expert-quote-mark { color: #d97706; }
+.geo-expert-style-minimal .geo-expert-quote-mark { color: #6c757d; }
+
+.geo-expert-quote {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-style: italic;
+    font-size: 1.05em;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+.geo-expert-author-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.geo-expert-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.geo-expert-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.geo-expert-name,
+.geo-expert-link {
+    font-weight: 700;
+    color: #1e3a5f;
+    font-size: 0.95em;
+    text-decoration: none;
+}
+
+.geo-expert-link:hover,
+.geo-expert-link:focus {
+    text-decoration: underline;
+}
+
+.geo-expert-credentials {
+    font-size: 0.85em;
+    color: #6c757d;
+    font-style: normal;
+}
+
+@media (max-width: 600px) {
+    .geo-expert-box {
+        padding: 12px 14px;
+    }
+
+    .geo-expert-photo {
+        width: 40px;
+        height: 40px;
+    }
+}

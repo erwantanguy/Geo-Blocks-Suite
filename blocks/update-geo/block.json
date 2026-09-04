@@ -1,0 +1,29 @@
+{
+  "apiVersion": 3,
+  "name": "geo-blocks/update-geo",
+  "title": "Mise a jour GEO",
+  "category": "text",
+  "icon": "update",
+  "description": "Encart de mise a jour avec date et note visible pour la fraicheur du contenu (EEAT, SEO/GEO).",
+  "version": "1.0.0",
+  "author": "Erwan Tanguy - Ticoet",
+  "textdomain": "geo-blocks-suite",
+  "attributes": {
+    "updateDate": {
+      "type": "string",
+      "default": ""
+    },
+    "note": {
+      "type": "string",
+      "default": ""
+    },
+    "autoDate": {
+      "type": "boolean",
+      "default": false
+    },
+    "style": {
+      "type": "string",
+      "default": "default"
+    }
+  }
+}
